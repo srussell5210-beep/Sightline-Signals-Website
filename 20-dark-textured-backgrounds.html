@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>20 Premium Dark Textured Backgrounds (5" × 5" Preview Studio)</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", sans-serif;
+    }
+
+    body {
+      background: #050608;
+      color: #f1f5f9;
+      padding: 40px 20px 100px 20px;
+      min-height: 100vh;
+      transition: background 0.3s ease;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .header h1 {
+      font-size: 2.6rem;
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      margin-bottom: 10px;
+      background: linear-gradient(135deg, #ffffff 40%, #94a3b8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .header p {
+      color: #94a3b8;
+      font-size: 1.05rem;
+    }
+
+    /* ========================================================
+       HERO FEATURED 5" × 5" LIVE PREVIEW STUDIO
+       ======================================================== */
+    .hero-preview-section {
+      background: #0a0c12;
+      border: 1px solid #1e2433;
+      border-radius: 24px;
+      padding: 32px;
+      margin-bottom: 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+    }
+
+    .hero-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #f8fafc;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hero-subtitle {
+      color: #64748b;
+      font-size: 0.9rem;
+      margin-bottom: 24px;
+    }
+
+    .hero-window-frame {
+      position: relative;
+      margin-bottom: 24px;
+    }
+
+    .hero-window {
+      width: 5in;
+      height: 5in;
+      min-width: 5in;
+      min-height: 5in;
+      border-radius: 18px;
+      position: relative;
+      overflow: hidden;
+      border: 2px solid rgba(255, 255, 255, 0.15);
+      box-shadow: inset 0 0 35px rgba(0, 0, 0, 0.8), 0 16px 40px rgba(0, 0, 0, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.25s ease;
+    }
+
+    .hero-size-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(10px);
+      color: #38bdf8;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      padding: 5px 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-center-label {
+      background: rgba(10, 12, 18, 0.9);
+      backdrop-filter: blur(16px);
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: #ffffff;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+      text-align: center;
+      pointer-events: none;
+    }
+
+    .hero-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      width: 100%;
+      max-width: 680px;
+    }
+
+    .select-dropdown {
+      flex: 1;
+      min-width: 260px;
+      background: #141722;
+      color: #f1f5f9;
+      border: 1px solid #28324a;
+      border-radius: 12px;
+      padding: 12px 16px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      outline: none;
+      cursor: pointer;
+    }
+    .select-dropdown:focus {
+      border-color: #38bdf8;
+    }
+
+    /* ========================================================
+       GRID OF 20 SWATCHES
+       ======================================================== */
+    .section-heading {
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+      text-align: center;
+      color: #cbd5e1;
+    }
+
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 36px;
+    }
+
+    .card {
+      background: #0d0f15;
+      border: 1px solid #1a1e2b;
+      border-radius: 20px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+      width: calc(5in + 48px);
+      flex: 0 0 calc(5in + 48px);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #3b82f6;
+      box-shadow: 0 16px 40px rgba(37, 99, 235, 0.2);
+    }
+
+    .preview-window-wrapper {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .preview-window {
+      width: 5in;
+      height: 5in;
+      min-width: 5in;
+      min-height: 5in;
+      flex-shrink: 0;
+      border-radius: 14px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.6), 0 6px 20px rgba(0, 0, 0, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .size-indicator {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(8px);
+      color: #64748b;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      padding: 4px 8px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      pointer-events: none;
+    }
+
+    .center-tag {
+      background: rgba(10, 12, 18, 0.85);
+      backdrop-filter: blur(12px);
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+      pointer-events: none;
+      transition: transform 0.2s ease;
+      text-align: center;
+    }
+
+    .preview-window:hover .center-tag {
+      transform: scale(1.06);
+    }
+
+    .card-info {
+      width: 5in;
+      min-width: 5in;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .card-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #f8fafc;
+    }
+
+    .tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: rgba(59, 130, 246, 0.12);
+      color: #60a5fa;
+      border: 1px solid rgba(59, 130, 246, 0.25);
+    }
+
+    .card-desc {
+      font-size: 0.88rem;
+      color: #94a3b8;
+      line-height: 1.5;
+      margin-bottom: 18px;
+      min-height: 42px;
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn {
+      flex: 1;
+      padding: 11px 14px;
+      border-radius: 10px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+      text-align: center;
+    }
+
+    .btn-apply {
+      background: #2563eb;
+      color: #ffffff;
+    }
+    .btn-apply:hover {
+      background: #1d4ed8;
+    }
+
+    .btn-copy {
+      background: #161a24;
+      color: #cbd5e1;
+      border: 1px solid #283042;
+    }
+    .btn-copy:hover {
+      background: #283042;
+      color: #ffffff;
+    }
+
+    /* ========================================================
+       20 PREMIUM DARK TEXTURED BACKGROUNDS CSS PATTERNS
+       ======================================================== */
+
+    /* 1. Carbon Basalt Weave */
+    .bg-1 {
+      background-color: #08090c;
+      background-image:
+        repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.03) 0px, rgba(255, 255, 255, 0.03) 1px, transparent 1px, transparent 4px),
+        repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.02) 0px, rgba(255, 255, 255, 0.02) 1px, transparent 1px, transparent 4px),
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n1'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n1)' opacity='0.10'/%3E%3C/svg%3E");
+    }
+
+    /* 2. Anisotropic Brushed Titanium */
+    .bg-2 {
+      background-color: #0b0d12;
+      background-image:
+        repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.025) 0px, rgba(255, 255, 255, 0.025) 1px, transparent 1px, transparent 3px),
+        radial-gradient(ellipse at 50% 0%, rgba(255, 255, 255, 0.08) 0%, transparent 70%),
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n2'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n2)' opacity='0.11'/%3E%3C/svg%3E");
+    }
+
+    /* 3. Deep Void Stippled Leather */
+    .bg-3 {
+      background-color: #060709;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n3'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.6' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n3)' opacity='0.14'/%3E%3C/svg%3E");
+    }
+
+    /* 4. Obsidian Micro-Dot Lattice */
+    .bg-4 {
+      background-color: #07080b;
+      background-image:
+        radial-gradient(rgba(255, 255, 255, 0.16) 1px, transparent 1px),
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n4'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n4)' opacity='0.09'/%3E%3C/svg%3E");
+      background-size: 16px 16px, auto;
+    }
+
+    /* 5. Nocturne Velvet Matte */
+    .bg-5 {
+      background-color: #09090d;
+      background-image:
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.04) 0%, transparent 80%),
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n5'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n5)' opacity='0.11'/%3E%3C/svg%3E");
+    }
+
+    /* 6. Aerospace Bead-Blasted Charcoal */
+    .bg-6 {
+      background-color: #0d0f14;
+      background-image:
+        radial-gradient(circle at 50% 0%, rgba(70, 85, 110, 0.22) 0%, transparent 65%),
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n6'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n6)' opacity='0.13'/%3E%3C/svg%3E");
+    }
+
+    /* 7. Bioluminescent Abyssal Teal */
+    .bg-7 {
+      background-color: #04090b;
+      background-image:
+        radial-gradient(circle at 80% 20%, rgba(0, 230, 202, 0.16) 0%, transparent 55%),
+        radial-gradient(circle at 20% 80%, rgba(6, 182, 212, 0.12) 0%, transparent 60%),
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n7'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n7)' opacity='0.12'/%3E%3C/svg%3E");
+    }
+
+    /* 8. Volcanic Basalt Ash */
+    .bg-8 {
+      background-color: #111012;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n8'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n8)' opacity='0.16'/%3E%3C/svg%3E");
+    }
+
+    /* 9. Cyber Hex Isometric Matrix */
+    .bg-9 {
+      background-color: #07090e;
+      background-image:
+        linear-gradient(30deg, rgba(255, 255, 255, 0.04) 12%, transparent 12.5%, transparent 87%, rgba(255, 255, 255, 0.04) 87.5%),
+        linear-gradient(150deg, rgba(255, 255, 255, 0.04) 12%, transparent 12.5%, transparent 87%, rgba(255, 255, 255, 0.04) 87.5%),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 10%, transparent 10%, transparent 90%, rgba(255, 255, 255, 0.03) 90%),
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n9'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n9)' opacity='0.10'/%3E%3C/svg%3E");
+      background-size: 24px 42px, 24px 42px, 24px 42px, auto;
+    }
+
+    /* 10. Smoked Frosted Glass */
+    .bg-10 {
+      background-color: #0b0c10;
+      background-image:
+        radial-gradient(circle at 10% 10%, rgba(255, 255, 255, 0.07) 0%, transparent 40%),
+        radial-gradient(circle at 90% 90%, rgba(255, 255, 255, 0.06) 0%, transparent 40%),
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n10'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.88' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n10)' opacity='0.13'/%3E%3C/svg%3E");
+    }
+
+    /* 11. Tungsten Cold Cast Metal */
+    .bg-11 {
+      background-color: #0f1116;
+      background-image:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, transparent 50%, rgba(0, 0, 0, 0.5) 100%),
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n11'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n11)' opacity='0.12'/%3E%3C/svg%3E");
+    }
+
+    /* 12. Japanese Sumi Washi Charcoal */
+    .bg-12 {
+      background-color: #08080a;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n12'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.55' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n12)' opacity='0.15'/%3E%3C/svg%3E");
+    }
+
+    /* 13. Brutalist Raw Concrete */
+    .bg-13 {
+      background-color: #121316;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n13'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n13)' opacity='0.13'/%3E%3C/svg%3E");
+    }
+
+    /* 14. Deep Cosmos Nebula */
+    .bg-14 {
+      background-color: #05050b;
+      background-image:
+        radial-gradient(circle at 75% 30%, rgba(139, 92, 246, 0.18) 0%, transparent 60%),
+        radial-gradient(circle at 25% 70%, rgba(59, 130, 246, 0.15) 0%, transparent 60%),
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n14'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.92' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n14)' opacity='0.13'/%3E%3C/svg%3E");
+    }
+
+    /* 15. Tactical Radar Phosphor Grid */
+    .bg-15 {
+      background-color: #030806;
+      background-image:
+        linear-gradient(rgba(16, 185, 129, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(16, 185, 129, 0.08) 1px, transparent 1px),
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n15'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n15)' opacity='0.11'/%3E%3C/svg%3E");
+      background-size: 20px 20px, 20px 20px, auto;
+    }
+
+    /* 16. Solarized Eclipse Umbra */
+    .bg-16 {
+      background-color: #080605;
+      background-image:
+        radial-gradient(circle at 50% 0%, rgba(245, 158, 11, 0.14) 0%, transparent 65%),
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n16'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n16)' opacity='0.12'/%3E%3C/svg%3E");
+    }
+
+    /* 17. Cast Iron Fine Sandblast */
+    .bg-17 {
+      background-color: #0f1013;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n17'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.88' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n17)' opacity='0.15'/%3E%3C/svg%3E");
+    }
+
+    /* 18. Stealth Satin Matte Ceramic */
+    .bg-18 {
+      background-color: #090a0d;
+      background-image:
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 90%),
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n18'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n18)' opacity='0.08'/%3E%3C/svg%3E");
+    }
+
+    /* 19. Directional Graphite Hatch */
+    .bg-19 {
+      background-color: #0a0b0e;
+      background-image:
+        repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.025) 0px, rgba(255, 255, 255, 0.025) 1px, transparent 1px, transparent 5px),
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n19'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n19)' opacity='0.11'/%3E%3C/svg%3E");
+    }
+
+    /* 20. Quantum Moiré Interference */
+    .bg-20 {
+      background-color: #070710;
+      background-image:
+        radial-gradient(circle at 15% 15%, rgba(99, 102, 241, 0.18) 0%, transparent 60%),
+        radial-gradient(circle at 85% 85%, rgba(236, 72, 153, 0.12) 0%, transparent 60%),
+        repeating-radial-gradient(circle at 50% 50%, transparent 0, transparent 4px, rgba(255, 255, 255, 0.018) 4px, rgba(255, 255, 255, 0.018) 5px),
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n20'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n20)' opacity='0.10'/%3E%3C/svg%3E");
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header">
+      <h1>20 Premium Dark Textured Backgrounds</h1>
+      <p>Precision 5" × 5" window swatches with embedded high-frequency dark SVG noise textures.</p>
+    </div>
+
+    <!-- HERO 5" x 5" LIVE STUDIO -->
+    <div class="hero-preview-section">
+      <div class="hero-title">🎯 Live 5" × 5" Interactive Studio</div>
+      <div class="hero-subtitle">Select any of the 20 textures to preview immediately in this dedicated 5" × 5" window</div>
+      
+      <div class="hero-window-frame">
+        <div class="hero-window bg-1" id="heroPreviewWindow">
+          <div class="hero-size-badge">5" × 5" PREVIEW</div>
+          <div class="hero-center-label" id="heroPreviewLabel">1. Carbon Basalt Weave</div>
+        </div>
+      </div>
+
+      <div class="hero-controls">
+        <select class="select-dropdown" id="heroSelect" onchange="selectHeroPattern(this.value)">
+          <option value="1">1. Carbon Basalt Weave (#08090C)</option>
+          <option value="2">2. Anisotropic Brushed Titanium (#0B0D12)</option>
+          <option value="3">3. Deep Void Stippled Leather (#060709)</option>
+          <option value="4">4. Obsidian Micro-Dot Lattice (#07080B)</option>
+          <option value="5">5. Nocturne Velvet Matte (#09090D)</option>
+          <option value="6">6. Aerospace Bead-Blasted Charcoal (#0D0F14)</option>
+          <option value="7">7. Bioluminescent Abyssal Teal (#04090B)</option>
+          <option value="8">8. Volcanic Basalt Ash (#111012)</option>
+          <option value="9">9. Cyber Hex Isometric Matrix (#07090E)</option>
+          <option value="10">10. Smoked Frosted Glass (#0B0C10)</option>
+          <option value="11">11. Tungsten Cold Cast Metal (#0F1116)</option>
+          <option value="12">12. Japanese Sumi Washi Charcoal (#08080A)</option>
+          <option value="13">13. Brutalist Raw Concrete (#121316)</option>
+          <option value="14">14. Deep Cosmos Nebula (#05050B)</option>
+          <option value="15">15. Tactical Radar Phosphor Grid (#030806)</option>
+          <option value="16">16. Solarized Eclipse Umbra (#080605)</option>
+          <option value="17">17. Cast Iron Fine Sandblast (#0F1013)</option>
+          <option value="18">18. Stealth Satin Matte Ceramic (#090A0D)</option>
+          <option value="19">19. Directional Graphite Hatch (#0A0B0E)</option>
+          <option value="20">20. Quantum Moiré Interference (#070710)</option>
+        </select>
+        <button class="btn btn-apply" style="flex:0 0 160px;" onclick="setFullBg(currentHeroId)">Full Screen</button>
+        <button class="btn btn-copy" style="flex:0 0 160px;" onclick="copyCss(currentHeroId)">Copy CSS</button>
+      </div>
+    </div>
+
+    <div class="section-heading">All 20 Textured Swatches (5" × 5" Windows)</div>
+
+    <div class="grid">
+
+      <!-- 1. Carbon Basalt Weave -->
+      <div class="card">
+        <div class="preview-window-wrapper">
+          <div class="preview-window bg-1" onclick="selectHeroPattern(1)">
+            <div class="size-indicator">5" × 5"</div>
+            <div class="center-tag">Carbon Basalt Weave</div>
+          </div>
+        </div>
+        <div class="card-info">
+          <div class="title-row">
+            <div class="card-title">1. Carbon Basalt Weave</div>
+            <span class="tag">#08090C</span>
+          </div>
+          <div class="card-desc">Tactile micro-diagonal 45° twill weave blended with fine stippling for high-performance hardware consoles.</div>
+          <div class="btn-row">
+            <button class="btn btn-apply" onclick="setFullBg(1)">Preview Fullpage</button>
+            <button class="btn btn-copy" onclick="copyCss(1)">Copy CSS</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Anisotropic Brushed Titanium -->
+      <div class="card">
+        <div class="preview-window-wrapper">
+          <div class="preview-window bg-2" onclick="selectHeroPattern(2)">
+            <div class="size-indicator">5" × 5"</div>
+            <div class="center-tag">Brushed Titanium</div>
+          </div>
+        </div>
+        <div class="card-info">
+          <div class="title-row">
+            <div class="card-title">2. Brushed Titanium</div>
+            <span class="tag">#0B0D12</span>
+          </div>
+          <div class="card-desc">Directional horizontal brushed metal grain with soft overhead spotlight highlight.</div>
+          <div class="btn-row">
+            <button class="btn btn-apply" onclick="setFullBg(2)">Preview Fullpage</button>
+            <button class="btn btn-copy" onclick="copyCss(2)">Copy CSS</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Deep Void Stippled Leather -->
+      <div class="card">
+        <div class="preview-window-wrapper">
+          <div class="preview-window bg-3" onclick="selectHeroPattern(3)">
+            <div class="size-indicator">5" × 5"</div>
+            <div class="center-tag">Stippled Leather</div>
+          </div>
+        </div>
+        <div class="card-info">
+          <div class="title-row">
+            <div class="card-title">3. Stippled Leather</div>
+            <span class="tag">#060709</span>
+          </div>
+          <div class="card-desc">Rich organic turbulence pebble grain in pure nocturnal pitch for luxury device interfaces.</div>
+          <div class="btn-row">
+            <button class="btn btn-apply" onclick="setFullBg(3)">Preview Fullpage</button>
+            <button class="btn btn-copy" onclick="copyCss(3)">Copy CSS</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Obsidian Micro-Dot Lattice -->
+      <div class="card">
+        <div class="preview-window-wrapper">
+          <div class="preview-window bg-4" onclick="selectHeroPattern(4)">
+            <div class="size-indicator">5" × 5"</div>
+            <div class="center-tag">Micro-Dot Lattice</div>
+          </div>
+        </div>
+        <div class="card-info">
+          <div class="title-row">
+            <div class="card-title">4. Micro-Dot Lattice</div>
+            <span class="tag">#07080B</span>
+          </div>
+          <div class="card-desc">Precise 16px technical dot-matrix with high-frequency background noise for CAD and geospatial panels.</div>
+          <div class="btn-row">
+            <button class="btn btn-apply" onclick="setFullBg(4)">Preview Fullpage</button>
+            <button class="btn btn-copy" onclick="copyCss(4)">Copy CSS</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Nocturne Velvet Matte -->
+      <div class="card">
+        <div class="preview-window-wrapper">
+          <div class="preview-window bg-5" onclick="selectHeroPattern(5)">
+            <div class="size-indicator">5" × 5"</div>
+            <div class="center-tag">Nocturne Velvet</div>
+          </div>
+        </div>
+        <div class="card-info">
+          <div class="title-row">
+            <div class="card-title">5. Nocturne Velvet Matte</div>
+            <span class="tag">#09090D</span>
+          </div>
+          <div class="card-desc">Ultra-dense 0.95 frequency micro-velvet matte with subtle center ambient falloff.</div>
+          <div class="btn-row">
+            <button class="btn btn-apply" onclick="setFullBg(5)">Preview Fullpage</button>
+            <button class="btn btn-copy" onclick="copyCss(5)">Copy CSS</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. Aerospace Bead-Blasted Charcoal -->
+      <div class="card">
+        <div class="preview-window-wrapper">
+          <div class="preview-window bg-6" onclick="selectHeroPattern(6)">
+            <div class="size-indicator">5" × 5"</div>
+            <div class="center-tag">Bead-Blasted Charcoal</div>
+          </div>
+        </div>
+        <div class="card-info">
+          <div class="title-row">
+            <div class="card-title">6. Bead-Blasted Charcoal</div>
+            <span class="tag">#0D0F14</span>
+          </div>
+          <div class="card-desc">Cool-toned industrial aluminum casing finish with soft zenith illumination.</div>
+          <div class="btn-row">
+            <button class="btn btn-apply" onclick="setFullBg(6)">Preview Fullpage</button>
+            <button class="btn btn-copy" onclick="copyCss(6)">Copy CSS</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7. Bioluminescent Abyssal Teal -->
+      <div class="card">
+        <div class="preview-window-wrapper">
+          <div class="preview-window bg-7" onclick="selectHeroPattern(7)">
+            <div class="size-indicator">5" × 5"</div>
+            <div class="center-tag">Abyssal Teal</div>
+          </div>
+        </div>
+        <div class="card-info">
+          <div class="title-row">
+            <div class="card-title">7. Abyssal Teal</div>
+            <span class="tag">#04090B</span>
+          </div>
+          <div class="card-desc">Deep underwater trench atmosphere with subtle cyan and teal ambient aura glow.</div>
+          <div class="btn-row">
+            <button class="btn btn-apply" onclick="setFullBg(7)">Preview Fullpage</button>
+            <button class="btn btn-copy" onclick="copyCss(7)">Copy CSS</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8. Volcanic Basalt Ash -->
+      <div class="card">
+        <div class="preview-window-wrapper">
+          <div class="preview-window bg-8" onclick="selectHeroPattern(8)">
+            <div class="size-indicator">5" × 5"</div>
+            <div class="center-tag">Volcanic Basalt Ash</div>
+          </div>
+        </div>
+        <div class="card-info">
+          <div class="title-row">
+            <div class="card-title">8. Volcanic Basalt Ash</div>
+            <span class="tag">#111012</span>
+          </div>
+          <div class="card-desc">High-octave volcanic stone aggregate with warm carbon undertones for organic dark themes.</div>
+          <div class="btn-row">
+            <button class="btn btn-apply" onclick="setFullBg(8)">Preview Fullpage</button>
+            <button class="btn btn-copy" onclick="copyCss(8)">Copy CSS</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9. Cyber Hex Isometric Matrix -->
+      <div class="card">
+        <div class="preview-window-wrapper">
+          <div class="preview-window bg-9" onclick="selectHeroPattern(9)">
+            <div class="size-indicator">5" × 5"</div>
+            <div class="center-tag">Cyber Hex Matrix</div>
+          </div>
+        </div>
+        <div class="card-info">
+          <div class="title-row">
+            <div class="card-title">9. Cyber Hex Matrix</div>
+            <span class="tag">#07090E</span>
+          </div>
+          <div class="card-desc">Isometric angled mesh traces paired with micro-noise for cybernetic command views.</div>
+          <div class="btn-row">
+            <button class="btn btn-apply" onclick="setFullBg(9)">Preview Fullpage</button>
+            <button class="btn btn-copy" onclick="copyCss(9)">Copy CSS</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10. Smoked Frosted Glass -->
+      <div class="card">
+        <div class="preview-window-wrapper">
+          <div class="preview-window bg-10" onclick="selectHeroPattern(10)">
+            <div class="size-indicator">5" × 5"</div>
+            <div class="center-tag">Smoked Frosted Glass</div>
+          </div>
+        </div>
+        <div class="card-info">
+          <div class="title-row">
+            <div class="card-title">10. Smoked Frosted Glass</div>
+            <span class="tag">#0B0C10</span>
+          </div>
+          <div class="card-desc">Diffuse particulate frosted glass texture with subtle diagonal edge reflections.</div>
+          <div class="btn-row">
+            <button class="btn btn-apply" onclick="setFullBg(10)">Preview Fullpage</button>
+            <button class="btn btn-copy" onclick="copyCss(10)">Copy CSS</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 11. Tungsten Cold Cast Metal -->
+      <div class="card">
+        <div class="preview-window-wrapper">
+          <div class="preview-window bg-11" onclick="selectHeroPattern(11)">
+            <div class="size-indicator">5" × 5"</div>
+            <div class="center-tag">Tungsten Cold Cast</div>
+          </div>
+        </div>
+        <div class="card-info">
+          <div class="title-row">
+            <div class="card-title">11. Tungsten Cold Cast</div>
+            <span class="tag">#0F1116</span>
+          </div>
+          <div class="card-desc">Heavy industrial cast iron and tungsten metal with 135-degree specular falloff.</div>
+          <div class="btn-row">
+            <button class="btn btn-apply" onclick="setFullBg(11)">Preview Fullpage</button>
+            <button class="btn btn-copy" onclick="copyCss(11)">Copy CSS</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 12. Japanese Sumi Washi Charcoal -->
+      <div class="card">
+        <div class="preview-window-wrapper">
+          <div class="preview-window bg-12" onclick="selectHeroPattern(12)">
+            <div class="size-indicator">5" × 5"</div>
+            <div class="center-tag">Sumi Washi Charcoal</div>
+          </div>
+        </div>
+        <div class="card-info">
+          <div class="title-row">
+            <div class="card-title">12. Sumi Washi Charcoal</div>
+            <span class="tag">#08080A</span>
+          </div>
+          <div class="card-desc">Fibrous organic Japanese handmade mulberry paper stipple in pure sumi-ink darkness.</div>
+          <div class="btn-row">
+            <button class="btn btn-apply" onclick="setFullBg(12)">Preview Fullpage</button>
+            <button class="btn btn-copy" onclick="copyCss(12)">Copy CSS</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 13. Brutalist Raw Concrete -->
+      <div class="card">
+        <div class="preview-window-wrapper">
+          <div class="preview-window bg-13" onclick="selectHeroPattern(13)">
+            <div class="size-indicator">5" × 5"</div>
+            <div class="center-tag">Brutalist Concrete</div>
+          </div>
+        </div>
+        <div class="card-info">
+          <div class="title-row">
+            <div class="card-title">13. Brutalist Concrete</div>
+            <span class="tag">#121316</span>
+          </div>
+          <div class="card-desc">Architectural micro-aggregate pore noise with heavy tactile density for brutalist UI.</div>
+          <div class="btn-row">
+            <button class="btn btn-apply" onclick="setFullBg(13)">Preview Fullpage</button>
+            <button class="btn btn-copy" onclick="copyCss(13)">Copy CSS</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 14. Deep Cosmos Nebula -->
+      <div class="card">
+        <div class="preview-window-wrapper">
+          <div class="preview-window bg-14" onclick="selectHeroPattern(14)">
+            <div class="size-indicator">5" × 5"</div>
+            <div class="center-tag">Deep Cosmos Nebula</div>
+          </div>
+        </div>
+        <div class="card-info">
+          <div class="title-row">
+            <div class="card-title">14. Deep Cosmos Nebula</div>
+            <span class="tag">#05050B</span>
+          </div>
+          <div class="card-desc">Cosmic stardust speckle layered over violet and indigo dual-nebula aura clouds.</div>
+          <div class="btn-row">
+            <button class="btn btn-apply" onclick="setFullBg(14)">Preview Fullpage</button>
+            <button class="btn btn-copy" onclick="copyCss(14)">Copy CSS</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 15. Tactical Radar Phosphor Grid -->
+      <div class="card">
+        <div class="preview-window-wrapper">
+          <div class="preview-window bg-15" onclick="selectHeroPattern(15)">
+            <div class="size-indicator">5" × 5"</div>
+            <div class="center-tag">Radar Phosphor Grid</div>
+          </div>
+        </div>
+        <div class="card-info">
+          <div class="title-row">
+            <div class="card-title">15. Radar Phosphor Grid</div>
+            <span class="tag">#030806</span>
+          </div>
+          <div class="card-desc">20px millimeter defense grid with faint phosphorescent emerald trace.</div>
+          <div class="btn-row">
+            <button class="btn btn-apply" onclick="setFullBg(15)">Preview Fullpage</button>
+            <button class="btn btn-copy" onclick="copyCss(15)">Copy CSS</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 16. Solarized Eclipse Umbra -->
+      <div class="card">
+        <div class="preview-window-wrapper">
+          <div class="preview-window bg-16" onclick="selectHeroPattern(16)">
+            <div class="size-indicator">5" × 5"</div>
+            <div class="center-tag">Solarized Eclipse</div>
+          </div>
+        </div>
+        <div class="card-info">
+          <div class="title-row">
+            <div class="card-title">16. Solarized Eclipse</div>
+            <span class="tag">#080605</span>
+          </div>
+          <div class="card-desc">Dark volcanic basalt undertone with faint amber solar corona illumination.</div>
+          <div class="btn-row">
+            <button class="btn btn-apply" onclick="setFullBg(16)">Preview Fullpage</button>
+            <button class="btn btn-copy" onclick="copyCss(16)">Copy CSS</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 17. Cast Iron Fine Sandblast -->
+      <div class="card">
+        <div class="preview-window-wrapper">
+          <div class="preview-window bg-17" onclick="selectHeroPattern(17)">
+            <div class="size-indicator">5" × 5"</div>
+            <div class="center-tag">Cast Iron Sandblast</div>
+          </div>
+        </div>
+        <div class="card-info">
+          <div class="title-row">
+            <div class="card-title">17. Cast Iron Sandblast</div>
+            <span class="tag">#0F1013</span>
+          </div>
+          <div class="card-desc">Uniform 0.88 frequency matte sandblasted texture for tool panels and telemetry racks.</div>
+          <div class="btn-row">
+            <button class="btn btn-apply" onclick="setFullBg(17)">Preview Fullpage</button>
+            <button class="btn btn-copy" onclick="copyCss(17)">Copy CSS</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 18. Stealth Satin Matte Ceramic -->
+      <div class="card">
+        <div class="preview-window-wrapper">
+          <div class="preview-window bg-18" onclick="selectHeroPattern(18)">
+            <div class="size-indicator">5" × 5"</div>
+            <div class="center-tag">Satin Matte Ceramic</div>
+          </div>
+        </div>
+        <div class="card-info">
+          <div class="title-row">
+            <div class="card-title">18. Satin Matte Ceramic</div>
+            <span class="tag">#090A0D</span>
+          </div>
+          <div class="card-desc">Subtle zero-glare ceramic nano-grain with soft omnidirectional ambient lighting.</div>
+          <div class="btn-row">
+            <button class="btn btn-apply" onclick="setFullBg(18)">Preview Fullpage</button>
+            <button class="btn btn-copy" onclick="copyCss(18)">Copy CSS</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 19. Directional Graphite Hatch -->
+      <div class="card">
+        <div class="preview-window-wrapper">
+          <div class="preview-window bg-19" onclick="selectHeroPattern(19)">
+            <div class="size-indicator">5" × 5"</div>
+            <div class="center-tag">Graphite Hatch</div>
+          </div>
+        </div>
+        <div class="card-info">
+          <div class="title-row">
+            <div class="card-title">19. Graphite Hatch</div>
+            <span class="tag">#0A0B0E</span>
+          </div>
+          <div class="card-desc">Fine 135° diagonal pencil shading micro-stripes with organic graphite grain.</div>
+          <div class="btn-row">
+            <button class="btn btn-apply" onclick="setFullBg(19)">Preview Fullpage</button>
+            <button class="btn btn-copy" onclick="copyCss(19)">Copy CSS</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 20. Quantum Moiré Interference -->
+      <div class="card">
+        <div class="preview-window-wrapper">
+          <div class="preview-window bg-20" onclick="selectHeroPattern(20)">
+            <div class="size-indicator">5" × 5"</div>
+            <div class="center-tag">Quantum Moiré</div>
+          </div>
+        </div>
+        <div class="card-info">
+          <div class="title-row">
+            <div class="card-title">20. Quantum Moiré</div>
+            <span class="tag">#070710</span>
+          </div>
+          <div class="card-desc">Concentric quantum ring interference paired with indigo-pink dual quantum emitter glow.</div>
+          <div class="btn-row">
+            <button class="btn btn-apply" onclick="setFullBg(20)">Preview Fullpage</button>
+            <button class="btn btn-copy" onclick="copyCss(20)">Copy CSS</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    let currentHeroId = 1;
+
+    const patternTitles = {
+      1: "1. Carbon Basalt Weave",
+      2: "2. Anisotropic Brushed Titanium",
+      3: "3. Deep Void Stippled Leather",
+      4: "4. Obsidian Micro-Dot Lattice",
+      5: "5. Nocturne Velvet Matte",
+      6: "6. Aerospace Bead-Blasted Charcoal",
+      7: "7. Bioluminescent Abyssal Teal",
+      8: "8. Volcanic Basalt Ash",
+      9: "9. Cyber Hex Isometric Matrix",
+      10: "10. Smoked Frosted Glass",
+      11: "11. Tungsten Cold Cast Metal",
+      12: "12. Japanese Sumi Washi Charcoal",
+      13: "13. Brutalist Raw Concrete",
+      14: "14. Deep Cosmos Nebula",
+      15: "15. Tactical Radar Phosphor Grid",
+      16: "16. Solarized Eclipse Umbra",
+      17: "17. Cast Iron Fine Sandblast",
+      18: "18. Stealth Satin Matte Ceramic",
+      19: "19. Directional Graphite Hatch",
+      20: "20. Quantum Moiré Interference"
+    };
+
+    const cssSnippets = {
+      1: `background-color: #08090c;\nbackground-image:\n  repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.03) 0px, rgba(255, 255, 255, 0.03) 1px, transparent 1px, transparent 4px),\n  repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.02) 0px, rgba(255, 255, 255, 0.02) 1px, transparent 1px, transparent 4px),\n  url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n1'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n1)' opacity='0.10'/%3E%3C/svg%3E");`,
+      2: `background-color: #0b0d12;\nbackground-image:\n  repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.025) 0px, rgba(255, 255, 255, 0.025) 1px, transparent 1px, transparent 3px),\n  radial-gradient(ellipse at 50% 0%, rgba(255, 255, 255, 0.08) 0%, transparent 70%),\n  url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n2'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n2)' opacity='0.11'/%3E%3C/svg%3E");`,
+      3: `background-color: #060709;\nbackground-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n3'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.6' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n3)' opacity='0.14'/%3E%3C/svg%3E");`,
+      4: `background-color: #07080b;\nbackground-image:\n  radial-gradient(rgba(255, 255, 255, 0.16) 1px, transparent 1px),\n  url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n4'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n4)' opacity='0.09'/%3E%3C/svg%3E");\nbackground-size: 16px 16px, auto;`,
+      5: `background-color: #09090d;\nbackground-image:\n  radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.04) 0%, transparent 80%),\n  url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n5'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n5)' opacity='0.11'/%3E%3C/svg%3E");`,
+      6: `background-color: #0d0f14;\nbackground-image:\n  radial-gradient(circle at 50% 0%, rgba(70, 85, 110, 0.22) 0%, transparent 65%),\n  url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n6'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n6)' opacity='0.13'/%3E%3C/svg%3E");`,
+      7: `background-color: #04090b;\nbackground-image:\n  radial-gradient(circle at 80% 20%, rgba(0, 230, 202, 0.16) 0%, transparent 55%),\n  radial-gradient(circle at 20% 80%, rgba(6, 182, 212, 0.12) 0%, transparent 60%),\n  url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n7'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n7)' opacity='0.12'/%3E%3C/svg%3E");`,
+      8: `background-color: #111012;\nbackground-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n8'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n8)' opacity='0.16'/%3E%3C/svg%3E");`,
+      9: `background-color: #07090e;\nbackground-image:\n  linear-gradient(30deg, rgba(255, 255, 255, 0.04) 12%, transparent 12.5%, transparent 87%, rgba(255, 255, 255, 0.04) 87.5%),\n  linear-gradient(150deg, rgba(255, 255, 255, 0.04) 12%, transparent 12.5%, transparent 87%, rgba(255, 255, 255, 0.04) 87.5%),\n  linear-gradient(90deg, rgba(255, 255, 255, 0.03) 10%, transparent 10%, transparent 90%, rgba(255, 255, 255, 0.03) 90%),\n  url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n9'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n9)' opacity='0.10'/%3E%3C/svg%3E");\nbackground-size: 24px 42px, 24px 42px, 24px 42px, auto;`,
+      10: `background-color: #0b0c10;\nbackground-image:\n  radial-gradient(circle at 10% 10%, rgba(255, 255, 255, 0.07) 0%, transparent 40%),\n  radial-gradient(circle at 90% 90%, rgba(255, 255, 255, 0.06) 0%, transparent 40%),\n  url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n10'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.88' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n10)' opacity='0.13'/%3E%3C/svg%3E");`,
+      11: `background-color: #0f1116;\nbackground-image:\n  linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, transparent 50%, rgba(0, 0, 0, 0.5) 100%),\n  url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n11'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n11)' opacity='0.12'/%3E%3C/svg%3E");`,
+      12: `background-color: #08080a;\nbackground-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n12'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.55' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n12)' opacity='0.15'/%3E%3C/svg%3E");`,
+      13: `background-color: #121316;\nbackground-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n13'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n13)' opacity='0.13'/%3E%3C/svg%3E");`,
+      14: `background-color: #05050b;\nbackground-image:\n  radial-gradient(circle at 75% 30%, rgba(139, 92, 246, 0.18) 0%, transparent 60%),\n  radial-gradient(circle at 25% 70%, rgba(59, 130, 246, 0.15) 0%, transparent 60%),\n  url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n14'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.92' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n14)' opacity='0.13'/%3E%3C/svg%3E");`,
+      15: `background-color: #030806;\nbackground-image:\n  linear-gradient(rgba(16, 185, 129, 0.08) 1px, transparent 1px),\n  linear-gradient(90deg, rgba(16, 185, 129, 0.08) 1px, transparent 1px),\n  url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n15'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n15)' opacity='0.11'/%3E%3C/svg%3E");\nbackground-size: 20px 20px, 20px 20px, auto;`,
+      16: `background-color: #080605;\nbackground-image:\n  radial-gradient(circle at 50% 0%, rgba(245, 158, 11, 0.14) 0%, transparent 65%),\n  url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n16'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n16)' opacity='0.12'/%3E%3C/svg%3E");`,
+      17: `background-color: #0f1013;\nbackground-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n17'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.88' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n17)' opacity='0.15'/%3E%3C/svg%3E");`,
+      18: `background-color: #090a0d;\nbackground-image:\n  radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 90%),\n  url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n18'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n18)' opacity='0.08'/%3E%3C/svg%3E");`,
+      19: `background-color: #0a0b0e;\nbackground-image:\n  repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.025) 0px, rgba(255, 255, 255, 0.025) 1px, transparent 1px, transparent 5px),\n  url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n19'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n19)' opacity='0.11'/%3E%3C/svg%3E");`,
+      20: `background-color: #070710;\nbackground-image:\n  radial-gradient(circle at 15% 15%, rgba(99, 102, 241, 0.18) 0%, transparent 60%),\n  radial-gradient(circle at 85% 85%, rgba(236, 72, 153, 0.12) 0%, transparent 60%),\n  repeating-radial-gradient(circle at 50% 50%, transparent 0, transparent 4px, rgba(255, 255, 255, 0.018) 4px, rgba(255, 255, 255, 0.018) 5px),\n  url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n20'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n20)' opacity='0.10'/%3E%3C/svg%3E");`
+    };
+
+    const allClassNames = [
+      'bg-1', 'bg-2', 'bg-3', 'bg-4', 'bg-5', 'bg-6', 'bg-7', 'bg-8', 'bg-9', 'bg-10',
+      'bg-11', 'bg-12', 'bg-13', 'bg-14', 'bg-15', 'bg-16', 'bg-17', 'bg-18', 'bg-19', 'bg-20'
+    ];
+
+    function selectHeroPattern(id) {
+      currentHeroId = parseInt(id, 10);
+      const heroWindow = document.getElementById('heroPreviewWindow');
+      const heroLabel = document.getElementById('heroPreviewLabel');
+      const heroSelect = document.getElementById('heroSelect');
+
+      heroWindow.classList.remove(...allClassNames);
+      heroWindow.classList.add('bg-' + currentHeroId);
+      heroLabel.textContent = patternTitles[currentHeroId];
+      heroSelect.value = currentHeroId;
+    }
+
+    function setFullBg(id) {
+      document.body.classList.remove(...allClassNames);
+      document.body.classList.add('bg-' + id);
+    }
+
+    function copyCss(id) {
+      const code = cssSnippets[id];
+      if (!code) return;
+      navigator.clipboard.writeText(code).then(() => {
+        alert('CSS copied to clipboard for Pattern #' + id + ' (' + patternTitles[id] + ')!');
+      });
+    }
+  </script>
+</body>
+</html>
