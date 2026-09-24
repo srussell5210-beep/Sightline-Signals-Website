@@ -149,6 +149,7 @@
       opacity: 1;
       visibility: visible;
       isolation: isolate;
+      cursor: pointer;
       transition: opacity 320ms ease, visibility 0s linear 0s;
     }
 
@@ -182,6 +183,27 @@
       object-fit: cover;
       object-position: center;
       transform: translateX(-50%);
+      filter: brightness(0.38);
+      transition: filter 650ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .splash-screen.is-playing .splash-video {
+      filter: brightness(1);
+    }
+    .splash-dimmer {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background: radial-gradient(circle at center, rgba(0, 0, 0, 0.40) 0%, rgba(0, 0, 0, 0.85) 100%);
+      backdrop-filter: blur(1.5px);
+      -webkit-backdrop-filter: blur(1.5px);
+      pointer-events: none;
+      transition: opacity 650ms cubic-bezier(0.16, 1, 0.3, 1), visibility 0s linear 650ms;
+      opacity: 1;
+      visibility: visible;
+    }
+    .splash-screen.is-playing .splash-dimmer {
+      opacity: 0;
+      visibility: hidden;
     }
     .splash-meta, .splash-content { opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 320ms ease, visibility 0s linear 320ms; }
     .splash-screen.is-final .splash-meta, .splash-screen.is-final .splash-content { opacity: 1; visibility: visible; pointer-events: auto; transition: opacity 320ms ease, visibility 0s linear 0s; }
@@ -192,65 +214,6 @@
     .splash-kicker { display: inline-flex; align-items: center; justify-content: center; gap: 9px; color: var(--accent); font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; text-shadow: 0 2px 16px rgba(0, 0, 0, 0.95); }
     .splash-title { margin: 14px 0 0; color: var(--text); font-size: clamp(48px, 7vw, 86px); font-weight: 470; letter-spacing: -0.075em; line-height: 0.94; text-shadow: 0 3px 24px rgba(0, 0, 0, 0.95); text-wrap: balance; }
     .splash-title img { display: block; width: min(100%, clamp(360px, 53vw, 760px)); height: auto; margin: -27px auto -29px; transform: translateY(clamp(34px, 4.5vw, 58px)); mix-blend-mode: screen; }
-    .splash-screen.is-final .splash-title img { opacity: 0; }
-    .splash-screen > .splash-actions {
-      position: absolute;
-      right: 24px;
-      bottom: calc(24px + 1in);
-      z-index: 4;
-      margin: 0;
-      opacity: 1;
-      visibility: visible;
-      pointer-events: auto;
-    }
-    .splash-enter-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      height: 40px;
-      padding: 0 20px 0 18px;
-      background: linear-gradient(135deg, #d89f78 0%, #b8754b 48%, #874626 100%);
-      border: 1px solid rgba(255, 235, 218, 0.45);
-      border-radius: 999px;
-      box-shadow:
-        0 0 0 3px rgba(216, 159, 120, 0.25),
-        inset 0 1px 0 rgba(255, 255, 255, 0.35),
-        0 4px 16px rgba(0, 0, 0, 0.6);
-      color: #ffffff;
-      font-family: var(--font-ui);
-      font-size: 11.5px;
-      font-weight: 650;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      text-decoration: none;
-      white-space: nowrap;
-      cursor: pointer;
-      user-select: none;
-      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
-    }
-    .splash-enter-btn:hover {
-      transform: translateY(-1px) scale(1.02);
-      border-color: rgba(255, 245, 235, 0.85);
-      box-shadow:
-        0 0 0 4px rgba(216, 159, 120, 0.42),
-        0 0 20px rgba(200, 136, 96, 0.65),
-        inset 0 1px 0 rgba(255, 255, 255, 0.45);
-    }
-    .splash-enter-btn:focus-visible {
-      outline: 2px solid #d89f78;
-      outline-offset: 3px;
-    }
-    .splash-enter-arrow {
-      display: inline-block;
-      font-size: 14px;
-      line-height: 1;
-      color: #ffffff;
-      transition: transform 180ms ease;
-    }
-    .splash-enter-btn:hover .splash-enter-arrow {
-      transform: translate(2px, -2px);
-    }
-    .splash-actions { display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 20px; }
     body.splash-active { overflow: hidden; }
     .splash-sound {
       position: absolute;
@@ -287,81 +250,102 @@
       0%, 100% { box-shadow: 0 4px 20px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 0 0 rgba(225, 160, 115, 0); }
       50% { box-shadow: 0 4px 20px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 0 6px rgba(225, 160, 115, 0.2); }
     }
-    .splash-play {
+    .splash-center-brand {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      z-index: 5;
-      display: inline-flex;
+      z-index: 4;
+      display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 12px;
-      height: 52px;
-      padding: 0 24px 0 16px;
-      background: linear-gradient(135deg, #f8d3b8 0%, #e2a67e 35%, #b8754b 75%, #8a4822 100%);
-      border: 1px solid rgba(255, 255, 255, 0.85);
-      border-radius: 999px;
-      box-shadow:
-        0 0 0 3px rgba(216, 159, 120, 0.4),
-        0 12px 35px rgba(0, 0, 0, 0.9),
-        0 24px 60px rgba(0, 0, 0, 0.75),
-        inset 0 1px 0 rgba(255, 255, 255, 0.85);
-      color: #140803;
-      font-family: var(--font-ui);
-      font-size: 13.5px;
-      font-weight: 700;
-      letter-spacing: 0.05em;
+      justify-content: center;
+      gap: 24px;
+      width: min(90vw, 640px);
+      user-select: none;
+      transition: opacity 500ms ease, transform 500ms cubic-bezier(0.16, 1, 0.3, 1), visibility 0s linear 500ms;
+      opacity: 1;
+      visibility: visible;
+    }
+    .splash-screen.is-playing .splash-center-brand {
+      opacity: 0;
+      visibility: hidden;
+      transform: translate(-50%, -50%) scale(0.96);
+      pointer-events: none;
+    }
+    .splash-center-logo {
+      display: block;
+      width: 100%;
+      height: auto;
+      filter: drop-shadow(0 10px 35px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 55px rgba(216, 159, 120, 0.28));
       cursor: pointer;
       user-select: none;
-      transition: transform 180ms ease, box-shadow 180ms ease, opacity 240ms ease, visibility 240ms ease;
+      transition: transform 240ms ease, filter 240ms ease;
     }
-    .splash-play:hover {
-      transform: translate(-50%, -50%) scale(1.05);
-      box-shadow:
-        0 0 0 4px rgba(216, 159, 120, 0.65),
-        0 16px 45px rgba(0, 0, 0, 0.95),
-        0 0 32px rgba(240, 175, 125, 0.55),
-        inset 0 1px 0 rgba(255, 255, 255, 0.95);
+    .splash-center-logo:hover {
+      transform: scale(1.02);
+      filter: drop-shadow(0 12px 42px rgba(0, 0, 0, 0.98)) drop-shadow(0 0 70px rgba(216, 159, 120, 0.40));
     }
-    .splash-play:focus-visible {
-      outline: 2px solid #ffffff;
-      outline-offset: 3px;
-    }
-    .splash-play-icon {
+    .splash-enter-btn {
+      align-self: flex-start;
+      margin-left: calc(100% * 156 / 631);
+      transform-origin: left center;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: #140803;
-      color: #f8d3b8;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-      flex-shrink: 0;
+      gap: 8px;
+      height: 42px;
+      padding: 0 24px 0 22px;
+      background: linear-gradient(135deg, #d89f78 0%, #b8754b 48%, #874626 100%);
+      border: 1px solid rgba(255, 235, 218, 0.45);
+      border-radius: 999px;
+      box-shadow:
+        0 0 0 3px rgba(216, 159, 120, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.35),
+        0 6px 20px rgba(0, 0, 0, 0.65);
+      color: #ffffff;
+      font-family: var(--font-ui);
+      font-size: 11.5px;
+      font-weight: 650;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      white-space: nowrap;
+      cursor: pointer;
+      user-select: none;
+      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
     }
-    .splash-play-icon svg {
-      width: 14px;
-      height: 14px;
-      margin-left: 2px;
+    .splash-enter-btn:hover {
+      transform: translateY(-2px) scale(1.03);
+      border-color: rgba(255, 245, 235, 0.9);
+      box-shadow:
+        0 0 0 4px rgba(216, 159, 120, 0.45),
+        0 0 24px rgba(200, 136, 96, 0.75),
+        inset 0 1px 0 rgba(255, 255, 255, 0.45);
     }
-    .splash-play.is-hidden {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
+    .splash-enter-btn:focus-visible {
+      outline: 2px solid #d89f78;
+      outline-offset: 3px;
+    }
+    .splash-enter-arrow {
+      display: inline-block;
+      font-size: 14px;
+      line-height: 1;
+      color: #ffffff;
+      transition: transform 180ms ease;
+    }
+    .splash-enter-btn:hover .splash-enter-arrow {
+      transform: translate(2px, -2px);
     }
     @media (max-width: 560px) {
-      .splash-play {
-        height: 46px;
-        padding: 0 20px 0 14px;
-        font-size: 12.5px;
+      .splash-center-brand {
+        width: min(88vw, 380px);
+        gap: 18px;
       }
-      .splash-play-icon {
-        width: 28px;
-        height: 28px;
-      }
-      .splash-play-icon svg {
-        width: 12px;
-        height: 12px;
+      .splash-enter-btn {
+        height: 38px;
+        padding: 0 18px 0 16px;
+        font-size: 10.5px;
       }
     }
 
@@ -1549,7 +1533,6 @@
       .nav-menu a:not(.nav-cta)::after { display: none; }
       .nav-menu a:not(.nav-cta):hover { background: rgba(255,255,255,0.05); }
       .splash-content { padding-right: 18px; padding-left: 18px; }
-      .splash-actions { justify-content: center; }
       .nav-cta { margin-top: 5px; }
       .hero { padding-top: 72px; }
       .hero-grid, .evidence-grid, .guardrail-grid, .contact-grid { grid-template-columns: 1fr; }
@@ -1575,8 +1558,6 @@
       :root { --container: min(100% - 28px, 520px); }
       .brand img { width: 158px; height: 66px; }
       .splash-meta { top: 18px; }
-      .splash-screen > .splash-actions { right: 16px; bottom: calc(16px + 1in); margin: 0; align-items: center; flex-direction: row; width: auto; }
-      .splash-enter-btn { height: 36px; padding: 0 15px 0 13px; font-size: 10.5px; }
       .hero-actions { align-items: stretch; flex-direction: column; }
       .hero-actions a { width: 100%; }
       .hero-proof { gap: 11px; }
@@ -1617,32 +1598,23 @@
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
 
-  <div class="splash-screen" id="splash-screen" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="splash-title">
+  <div class="splash-screen" id="splash-screen" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Sightline Signals Introduction">
     <video class="splash-video" playsinline preload="auto" aria-hidden="true" tabindex="-1">
-      <source src="assets/videos/New-Sightline-voice-from-Sightline2-replaced-logo.mp4" type="video/mp4">
+      <source src="assets/videos/New-Sightline.mp4" type="video/mp4">
     </video>
-    <button class="splash-play" id="splash-play" type="button" aria-label="Play video with audio">
-      <span class="splash-play-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="7 4 20 12 7 20 7 4"/></svg>
-      </span>
-      <span class="splash-play-label">Play Video</span>
-    </button>
-    <button class="splash-sound" id="splash-sound" type="button" hidden aria-pressed="false" aria-label="Turn splash video sound on">
-      <svg class="splash-sound-icon icon-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="m16 9 5 6M21 9l-5 6"/></svg>
-      <svg class="splash-sound-icon icon-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg>
-      <span class="splash-sound-label">Tap for sound</span>
-    </button>
-    <div class="splash-content">
-      <div class="splash-copy">
-        <h1 class="splash-title" id="splash-title"><img src="assets/images/sightline-name-only.png" alt="Sightline Signals"></h1>
-      </div>
-    </div>
-    <div class="splash-actions">
+    <div class="splash-dimmer" aria-hidden="true"></div>
+    <div class="splash-center-brand" id="splash-center-brand">
+      <img src="assets/images/sightline-hero-lockup-3-transparent.png" alt="Sightline Signals &mdash; Facility Intelligence, Made Decision-Ready." class="splash-center-logo" width="648" height="159" title="Click to begin introduction video">
       <a class="splash-enter-btn" id="splash-enter" href="#main-content" aria-label="Enter Sightline Signals website">
         <span class="splash-enter-label">ENTER SITE</span>
         <span class="splash-enter-arrow" aria-hidden="true">↗</span>
       </a>
     </div>
+    <button class="splash-sound" id="splash-sound" type="button" hidden aria-pressed="false" aria-label="Turn splash video sound on">
+      <svg class="splash-sound-icon icon-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="m16 9 5 6M21 9l-5 6"/></svg>
+      <svg class="splash-sound-icon icon-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg>
+      <span class="splash-sound-label">Tap for sound</span>
+    </button>
   </div>
 
   <header class="site-header">
@@ -2316,8 +2288,8 @@
       var dialogClose = document.querySelector('#dialog-close');
       var splash = document.querySelector('#splash-screen');
       var splashVideo = document.querySelector('.splash-video');
+      var splashCenterBrand = document.querySelector('#splash-center-brand');
       var splashEnter = document.querySelector('#splash-enter');
-      var splashPlay = document.querySelector('#splash-play');
       var splashSound = document.querySelector('#splash-sound');
       var splashSoundLabel = splashSound ? splashSound.querySelector('.splash-sound-label') : null;
       var mainContent = document.querySelector('#main-content');
@@ -2346,77 +2318,72 @@
         if (!splashVideo || !splash || splash.classList.contains('is-dismissed')) return;
         splashVideo.muted = false;
         var playPromise = splashVideo.play();
+        var onPlaying = function () {
+          splash.classList.add('is-playing');
+          updateSoundButton();
+        };
         if (playPromise && typeof playPromise.then === 'function') {
-          playPromise.then(function () {
-            if (splashPlay) splashPlay.classList.add('is-hidden');
-            updateSoundButton();
-          }).catch(function () {
+          playPromise.then(onPlaying).catch(function () {
             splashVideo.muted = true;
-            splashVideo.play().then(function () {
-              if (splashPlay) splashPlay.classList.add('is-hidden');
-              updateSoundButton();
-            });
+            splashVideo.play().then(onPlaying).catch(function () {});
           });
         }
       }
 
-      function revealSplashCopy() {
-        if (!splash || splash.classList.contains('is-dismissed')) return;
-        splash.classList.add('is-final');
-        splash.removeAttribute('aria-hidden');
-        if (splashEnter) splashEnter.focus({ preventScroll: true });
-      }
-
-      if (splash && splashEnter) {
+      if (splash) {
         document.body.classList.add('splash-active');
-        splashEnter.addEventListener('click', function (event) { event.preventDefault(); dismissSplash(); });
+        if (splashEnter) {
+          splashEnter.addEventListener('click', function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+            dismissSplash();
+          });
+        }
         document.addEventListener('keydown', function (event) {
           if (splash.classList.contains('is-dismissed')) return;
           if (event.key === 'Escape') { event.preventDefault(); dismissSplash(); }
-          if (event.key === 'Tab') {
+          if ((event.key === ' ' || event.key === 'Enter') && !splash.classList.contains('is-playing')) {
+            if (document.activeElement === splashEnter) {
+              event.preventDefault();
+              dismissSplash();
+              return;
+            }
             event.preventDefault();
-            var playVisible = splashPlay && !splashPlay.classList.contains('is-hidden');
-            var soundVisible = splashSound && !splashSound.hidden;
-            if (playVisible && document.activeElement !== splashPlay) splashPlay.focus();
-            else if (soundVisible && document.activeElement === splashEnter) splashSound.focus();
-            else splashEnter.focus();
+            startSplashPlayback();
           }
-        });
-      }
-
-      if (splashPlay) {
-        splashPlay.addEventListener('click', function (event) {
-          event.stopPropagation();
-          startSplashPlayback();
         });
       }
 
       if (splashVideo && splash) {
-        splashVideo.addEventListener('ended', function () {
-          revealSplashCopy();
-          splashVideo.pause();
-          updateSoundButton();
-          if (splashPlay) {
-            var label = splashPlay.querySelector('.splash-play-label');
-            if (label) label.textContent = 'Replay Video';
-            splashPlay.classList.remove('is-hidden');
-          }
+        splashVideo.addEventListener('play', function () {
+          splash.classList.add('is-playing');
         });
-        splashVideo.addEventListener('error', revealSplashCopy, { once: true });
+        splashVideo.addEventListener('playing', function () {
+          splash.classList.add('is-playing');
+        });
+        splashVideo.addEventListener('ended', function () {
+          window.setTimeout(dismissSplash, 800);
+        });
+        splashVideo.addEventListener('error', dismissSplash, { once: true });
         if (splashSound) {
           splashSound.addEventListener('click', function (event) {
             event.stopPropagation();
-            if (!splashVideo.paused) {
+            if (!splash.classList.contains('is-playing')) {
+              startSplashPlayback();
+            } else {
               splashVideo.muted = !splashVideo.muted;
               updateSoundButton();
             }
           });
         }
-        // First tap/click anywhere on the splash (other than buttons) starts playback if not yet playing
+        // Before playing: click anywhere outside sound control and enter button to begin playback.
+        // Once playing: click anywhere outside sound control to dismiss and enter site.
         splash.addEventListener('click', function (event) {
-          if (event.target.closest && event.target.closest('#splash-enter, #splash-sound, #splash-play')) return;
-          if (splashPlay && !splashPlay.classList.contains('is-hidden')) {
+          if (event.target.closest && event.target.closest('#splash-sound, #splash-enter')) return;
+          if (!splash.classList.contains('is-playing')) {
             startSplashPlayback();
+          } else {
+            dismissSplash();
           }
         });
       }
