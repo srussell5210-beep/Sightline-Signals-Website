@@ -203,169 +203,167 @@
       visibility: visible;
       pointer-events: auto;
     }
-    .splash-command-badge {
+    .splash-enter-btn {
       display: inline-flex;
       align-items: center;
-      padding: 4px 4px 4px 12px;
-      gap: 12px;
-      background: rgba(8, 16, 20, 0.86);
-      backdrop-filter: blur(14px) saturate(140%);
-      -webkit-backdrop-filter: blur(14px) saturate(140%);
-      border: 1px solid rgba(196, 225, 220, 0.22);
-      border-radius: 999px;
-      box-shadow:
-        0 4px 20px rgba(0, 0, 0, 0.65),
-        0 0 0 1px rgba(255, 255, 255, 0.04),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
-      text-decoration: none;
-      cursor: pointer;
-      user-select: none;
-      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
-    }
-    .splash-command-badge:hover {
-      transform: translateY(-1px) scale(1.02);
-      border-color: rgba(216, 159, 120, 0.5);
-      box-shadow:
-        0 8px 28px rgba(0, 0, 0, 0.75),
-        0 0 18px rgba(200, 136, 96, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    }
-    .splash-command-badge:focus-visible {
-      outline: 2px solid #d89f78;
-      outline-offset: 3px;
-    }
-    .splash-badge-status {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .splash-badge-mark-wrap {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .splash-badge-mark-wrap::before {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 68px;
-      height: 68px;
-      transform: translate(-50%, -50%);
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(255, 215, 175, 0.85) 0%, rgba(225, 160, 115, 0.6) 32%, rgba(160, 80, 40, 0.3) 58%, transparent 76%);
-      box-shadow: 0 0 20px rgba(225, 160, 115, 0.5), 0 0 35px rgba(180, 95, 50, 0.35);
-      pointer-events: none;
-      z-index: 0;
-      filter: blur(4px);
-      transition: transform 200ms ease, opacity 200ms ease, background 200ms ease, box-shadow 200ms ease;
-    }
-    .splash-command-badge:hover .splash-badge-mark-wrap::before {
-      transform: translate(-50%, -50%) scale(1.24);
-      background: radial-gradient(circle, rgba(255, 230, 195, 0.95) 0%, rgba(240, 175, 125, 0.75) 34%, rgba(180, 95, 50, 0.45) 60%, transparent 78%);
-      box-shadow: 0 0 26px rgba(240, 175, 125, 0.7), 0 0 45px rgba(200, 110, 60, 0.45);
-    }
-    .splash-badge-mark-img {
-      position: relative;
-      z-index: 1;
-      display: block;
-      width: auto;
-      height: 42px;
-      object-fit: contain;
-      filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 10px rgba(230, 170, 125, 0.65));
-      transition: transform 200ms ease, filter 200ms ease;
-    }
-    .splash-command-badge:hover .splash-badge-mark-img {
-      transform: scale(1.08);
-      filter: drop-shadow(0 3px 14px rgba(0, 0, 0, 0.85)) drop-shadow(0 0 14px rgba(240, 180, 135, 0.85));
-    }
-    .splash-badge-telemetry {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-family: var(--font-mono);
-      font-size: 10px;
-      font-weight: 550;
-      letter-spacing: 0.08em;
-      color: var(--text-soft);
-      text-transform: uppercase;
-      white-space: nowrap;
-      transition: color 180ms ease;
-    }
-    .splash-command-badge:hover .splash-badge-telemetry {
-      color: #ffffff;
-    }
-    .splash-badge-pip {
-      display: inline-block;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #d89f78;
-      box-shadow: 0 0 6px rgba(216, 159, 120, 0.75);
-      animation: pip-breathe 2.4s ease-in-out infinite;
-      transition: transform 180ms ease, box-shadow 180ms ease;
-    }
-    @keyframes pip-breathe {
-      0%, 100% {
-        opacity: 0.45;
-        transform: scale(0.9);
-        box-shadow: 0 0 4px rgba(216, 159, 120, 0.4);
-      }
-      50% {
-        opacity: 1;
-        transform: scale(1.15);
-        box-shadow: 0 0 8px rgba(216, 159, 120, 0.9);
-      }
-    }
-    .splash-command-badge:hover .splash-badge-pip {
-      animation-play-state: paused;
-      opacity: 1;
-      transform: scale(1.2);
-      box-shadow: 0 0 10px rgba(216, 159, 120, 1);
-    }
-    .splash-badge-action {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      height: 38px;
-      padding: 0 16px 0 14px;
+      gap: 8px;
+      height: 40px;
+      padding: 0 20px 0 18px;
       background: linear-gradient(135deg, #d89f78 0%, #b8754b 48%, #874626 100%);
       border: 1px solid rgba(255, 235, 218, 0.45);
       border-radius: 999px;
       box-shadow:
         0 0 0 3px rgba(216, 159, 120, 0.25),
         inset 0 1px 0 rgba(255, 255, 255, 0.35),
-        0 2px 10px rgba(48, 16, 8, 0.6);
+        0 4px 16px rgba(0, 0, 0, 0.6);
       color: #ffffff;
       font-family: var(--font-ui);
       font-size: 11.5px;
       font-weight: 650;
       letter-spacing: 0.06em;
       text-transform: uppercase;
+      text-decoration: none;
       white-space: nowrap;
-      transition: border-color 180ms ease, box-shadow 180ms ease;
+      cursor: pointer;
+      user-select: none;
+      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
     }
-    .splash-command-badge:hover .splash-badge-action {
+    .splash-enter-btn:hover {
+      transform: translateY(-1px) scale(1.02);
       border-color: rgba(255, 245, 235, 0.85);
       box-shadow:
         0 0 0 4px rgba(216, 159, 120, 0.42),
-        0 0 18px rgba(200, 136, 96, 0.6),
+        0 0 20px rgba(200, 136, 96, 0.65),
         inset 0 1px 0 rgba(255, 255, 255, 0.45);
     }
-    .splash-badge-action-arrow {
+    .splash-enter-btn:focus-visible {
+      outline: 2px solid #d89f78;
+      outline-offset: 3px;
+    }
+    .splash-enter-arrow {
       display: inline-block;
       font-size: 14px;
       line-height: 1;
       color: #ffffff;
       transition: transform 180ms ease;
     }
-    .splash-command-badge:hover .splash-badge-action-arrow {
+    .splash-enter-btn:hover .splash-enter-arrow {
       transform: translate(2px, -2px);
     }
     .splash-actions { display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 20px; }
     body.splash-active { overflow: hidden; }
+    .splash-sound {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      z-index: 4;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      height: 36px;
+      padding: 0 14px 0 11px;
+      color: var(--text);
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: rgba(8, 16, 20, 0.86);
+      backdrop-filter: blur(14px) saturate(140%);
+      -webkit-backdrop-filter: blur(14px) saturate(140%);
+      border: 1px solid rgba(196, 225, 220, 0.22);
+      border-radius: 999px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      cursor: pointer;
+      transition: border-color 180ms ease, transform 180ms ease;
+    }
+    .splash-sound[hidden] { display: none; }
+    .splash-sound:hover { border-color: rgba(225, 160, 115, 0.7); transform: translateY(-1px); }
+    .splash-sound:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+    .splash-sound-icon { display: block; width: 16px; height: 16px; flex: none; color: var(--accent); }
+    .splash-sound .icon-on, .splash-sound.is-on .icon-off { display: none; }
+    .splash-sound.is-on .icon-on { display: block; }
+    .splash-sound:not(.is-on) { animation: splash-sound-pulse 2.4s ease-in-out infinite; }
+    @keyframes splash-sound-pulse {
+      0%, 100% { box-shadow: 0 4px 20px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 0 0 rgba(225, 160, 115, 0); }
+      50% { box-shadow: 0 4px 20px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 0 6px rgba(225, 160, 115, 0.2); }
+    }
+    .splash-play {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 5;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      height: 52px;
+      padding: 0 24px 0 16px;
+      background: linear-gradient(135deg, #f8d3b8 0%, #e2a67e 35%, #b8754b 75%, #8a4822 100%);
+      border: 1px solid rgba(255, 255, 255, 0.85);
+      border-radius: 999px;
+      box-shadow:
+        0 0 0 3px rgba(216, 159, 120, 0.4),
+        0 12px 35px rgba(0, 0, 0, 0.9),
+        0 24px 60px rgba(0, 0, 0, 0.75),
+        inset 0 1px 0 rgba(255, 255, 255, 0.85);
+      color: #140803;
+      font-family: var(--font-ui);
+      font-size: 13.5px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      user-select: none;
+      transition: transform 180ms ease, box-shadow 180ms ease, opacity 240ms ease, visibility 240ms ease;
+    }
+    .splash-play:hover {
+      transform: translate(-50%, -50%) scale(1.05);
+      box-shadow:
+        0 0 0 4px rgba(216, 159, 120, 0.65),
+        0 16px 45px rgba(0, 0, 0, 0.95),
+        0 0 32px rgba(240, 175, 125, 0.55),
+        inset 0 1px 0 rgba(255, 255, 255, 0.95);
+    }
+    .splash-play:focus-visible {
+      outline: 2px solid #ffffff;
+      outline-offset: 3px;
+    }
+    .splash-play-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #140803;
+      color: #f8d3b8;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+      flex-shrink: 0;
+    }
+    .splash-play-icon svg {
+      width: 14px;
+      height: 14px;
+      margin-left: 2px;
+    }
+    .splash-play.is-hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    @media (max-width: 560px) {
+      .splash-play {
+        height: 46px;
+        padding: 0 20px 0 14px;
+        font-size: 12.5px;
+      }
+      .splash-play-icon {
+        width: 28px;
+        height: 28px;
+      }
+      .splash-play-icon svg {
+        width: 12px;
+        height: 12px;
+      }
+    }
 
     .site-header {
       position: sticky;
@@ -1578,13 +1576,7 @@
       .brand img { width: 158px; height: 66px; }
       .splash-meta { top: 18px; }
       .splash-screen > .splash-actions { right: 16px; bottom: calc(16px + 1in); margin: 0; align-items: center; flex-direction: row; width: auto; }
-      .splash-command-badge { max-width: calc(100vw - 32px); padding: 3px 3px 3px 10px; gap: 8px; }
-      .splash-badge-status { gap: 8px; }
-      .splash-badge-mark-wrap::before { width: 56px; height: 56px; box-shadow: 0 0 16px rgba(225, 160, 115, 0.5); }
-      .splash-badge-mark-img { height: 32px; }
-      .splash-badge-telemetry { font-size: 9px; gap: 5px; }
-      .splash-badge-pip { width: 5px; height: 5px; }
-      .splash-badge-action { height: 34px; padding: 0 13px 0 11px; font-size: 10.5px; }
+      .splash-enter-btn { height: 36px; padding: 0 15px 0 13px; font-size: 10.5px; }
       .hero-actions { align-items: stretch; flex-direction: column; }
       .hero-actions a { width: 100%; }
       .hero-proof { gap: 11px; }
@@ -1626,29 +1618,29 @@
   <a class="skip-link" href="#main-content">Skip to content</a>
 
   <div class="splash-screen" id="splash-screen" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="splash-title">
-    <video class="splash-video" autoplay playsinline preload="auto" aria-hidden="true" tabindex="-1">
+    <video class="splash-video" playsinline preload="auto" aria-hidden="true" tabindex="-1">
       <source src="assets/videos/New-Sightline-voice-from-Sightline2-replaced-logo.mp4" type="video/mp4">
     </video>
+    <button class="splash-play" id="splash-play" type="button" aria-label="Play video with audio">
+      <span class="splash-play-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="7 4 20 12 7 20 7 4"/></svg>
+      </span>
+      <span class="splash-play-label">Play Video</span>
+    </button>
+    <button class="splash-sound" id="splash-sound" type="button" hidden aria-pressed="false" aria-label="Turn splash video sound on">
+      <svg class="splash-sound-icon icon-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="m16 9 5 6M21 9l-5 6"/></svg>
+      <svg class="splash-sound-icon icon-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg>
+      <span class="splash-sound-label">Tap for sound</span>
+    </button>
     <div class="splash-content">
       <div class="splash-copy">
         <h1 class="splash-title" id="splash-title"><img src="assets/images/sightline-name-only.png" alt="Sightline Signals"></h1>
       </div>
     </div>
     <div class="splash-actions">
-      <a class="splash-command-badge" id="splash-enter" href="#main-content" aria-label="Enter Sightline Signals website">
-        <span class="splash-badge-status">
-          <span class="splash-badge-mark-wrap" aria-hidden="true">
-            <img src="assets/images/sightline-mark.png" alt="" class="splash-badge-mark-img" width="35" height="42">
-          </span>
-          <span class="splash-badge-telemetry">
-            <span class="splash-badge-pip" aria-hidden="true"></span>
-            <span class="splash-badge-text">SIGNAL LIVE</span>
-          </span>
-        </span>
-        <span class="splash-badge-action">
-          <span class="splash-badge-action-label">ENTER SITE</span>
-          <span class="splash-badge-action-arrow" aria-hidden="true">↗</span>
-        </span>
+      <a class="splash-enter-btn" id="splash-enter" href="#main-content" aria-label="Enter Sightline Signals website">
+        <span class="splash-enter-label">ENTER SITE</span>
+        <span class="splash-enter-arrow" aria-hidden="true">↗</span>
       </a>
     </div>
   </div>
@@ -2325,6 +2317,9 @@
       var splash = document.querySelector('#splash-screen');
       var splashVideo = document.querySelector('.splash-video');
       var splashEnter = document.querySelector('#splash-enter');
+      var splashPlay = document.querySelector('#splash-play');
+      var splashSound = document.querySelector('#splash-sound');
+      var splashSoundLabel = splashSound ? splashSound.querySelector('.splash-sound-label') : null;
       var mainContent = document.querySelector('#main-content');
       var lastFocused = null;
 
@@ -2337,10 +2332,32 @@
         if (mainContent) mainContent.focus({ preventScroll: true });
       }
 
-      function startSplashVideo() {
+      function updateSoundButton() {
+        if (!splashSound || !splashVideo) return;
+        var soundOn = !splashVideo.muted && !splashVideo.paused;
+        splashSound.hidden = false;
+        splashSound.classList.toggle('is-on', soundOn);
+        splashSound.setAttribute('aria-pressed', String(soundOn));
+        splashSound.setAttribute('aria-label', soundOn ? 'Mute splash video' : 'Turn splash video sound on');
+        if (splashSoundLabel) splashSoundLabel.textContent = soundOn ? 'Mute' : 'Unmute';
+      }
+
+      function startSplashPlayback() {
         if (!splashVideo || !splash || splash.classList.contains('is-dismissed')) return;
+        splashVideo.muted = false;
         var playPromise = splashVideo.play();
-        if (playPromise && typeof playPromise.catch === 'function') playPromise.catch(function () {});
+        if (playPromise && typeof playPromise.then === 'function') {
+          playPromise.then(function () {
+            if (splashPlay) splashPlay.classList.add('is-hidden');
+            updateSoundButton();
+          }).catch(function () {
+            splashVideo.muted = true;
+            splashVideo.play().then(function () {
+              if (splashPlay) splashPlay.classList.add('is-hidden');
+              updateSoundButton();
+            });
+          });
+        }
       }
 
       function revealSplashCopy() {
@@ -2356,20 +2373,52 @@
         document.addEventListener('keydown', function (event) {
           if (splash.classList.contains('is-dismissed')) return;
           if (event.key === 'Escape') { event.preventDefault(); dismissSplash(); }
-          if (event.key === 'Tab') { event.preventDefault(); splashEnter.focus(); }
+          if (event.key === 'Tab') {
+            event.preventDefault();
+            var playVisible = splashPlay && !splashPlay.classList.contains('is-hidden');
+            var soundVisible = splashSound && !splashSound.hidden;
+            if (playVisible && document.activeElement !== splashPlay) splashPlay.focus();
+            else if (soundVisible && document.activeElement === splashEnter) splashSound.focus();
+            else splashEnter.focus();
+          }
         });
       }
 
-      if (splashVideo) {
+      if (splashPlay) {
+        splashPlay.addEventListener('click', function (event) {
+          event.stopPropagation();
+          startSplashPlayback();
+        });
+      }
+
+      if (splashVideo && splash) {
         splashVideo.addEventListener('ended', function () {
           revealSplashCopy();
           splashVideo.pause();
+          updateSoundButton();
+          if (splashPlay) {
+            var label = splashPlay.querySelector('.splash-play-label');
+            if (label) label.textContent = 'Replay Video';
+            splashPlay.classList.remove('is-hidden');
+          }
         });
-        if (splash) {
-          splash.addEventListener('pointerdown', startSplashVideo);
+        splashVideo.addEventListener('error', revealSplashCopy, { once: true });
+        if (splashSound) {
+          splashSound.addEventListener('click', function (event) {
+            event.stopPropagation();
+            if (!splashVideo.paused) {
+              splashVideo.muted = !splashVideo.muted;
+              updateSoundButton();
+            }
+          });
         }
-        document.addEventListener('keydown', startSplashVideo);
-        startSplashVideo();
+        // First tap/click anywhere on the splash (other than buttons) starts playback if not yet playing
+        splash.addEventListener('click', function (event) {
+          if (event.target.closest && event.target.closest('#splash-enter, #splash-sound, #splash-play')) return;
+          if (splashPlay && !splashPlay.classList.contains('is-hidden')) {
+            startSplashPlayback();
+          }
+        });
       }
 
       function setNav(open) {
