@@ -2339,14 +2339,8 @@
 
       function startSplashVideo() {
         if (!splashVideo || !splash || splash.classList.contains('is-dismissed')) return;
-        splashVideo.muted = false;
         var playPromise = splashVideo.play();
-        if (playPromise && typeof playPromise.catch === 'function') {
-          playPromise.catch(function () {
-            splashVideo.muted = true;
-            splashVideo.play().catch(function () {});
-          });
-        }
+        if (playPromise && typeof playPromise.catch === 'function') playPromise.catch(function () {});
       }
 
       function revealSplashCopy() {
@@ -2371,33 +2365,11 @@
           revealSplashCopy();
           splashVideo.pause();
         });
-        splashVideo.addEventListener('error', function () {
-          revealSplashCopy();
-        }, { once: true });
         if (splash) {
-          splash.addEventListener('pointerdown', function (event) {
-            if (splashEnter && (splashEnter === event.target || splashEnter.contains(event.target))) return;
-            if (splashVideo.paused) {
-              splashVideo.play().catch(function () {});
-            }
-            splashVideo.muted = false;
-          });
+          splash.addEventListener('pointerdown', startSplashVideo);
         }
-        document.addEventListener('keydown', function (event) {
-          if (splash.classList.contains('is-dismissed')) return;
-          if (event.key !== 'Escape' && event.key !== 'Tab') {
-            if (splashVideo.paused) {
-              splashVideo.play().catch(function () {});
-            }
-            splashVideo.muted = false;
-          }
-        });
+        document.addEventListener('keydown', startSplashVideo);
         startSplashVideo();
-        splashVideo.addEventListener('canplay', function () {
-          if (splashVideo.paused && !splash.classList.contains('is-dismissed')) {
-            startSplashVideo();
-          }
-        }, { once: true });
       }
 
       function setNav(open) {
