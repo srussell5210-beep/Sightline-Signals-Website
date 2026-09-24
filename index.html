@@ -1626,7 +1626,7 @@
   <a class="skip-link" href="#main-content">Skip to content</a>
 
   <div class="splash-screen" id="splash-screen" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="splash-title">
-    <video class="splash-video" autoplay playsinline preload="auto" aria-hidden="true" tabindex="-1">
+    <video class="splash-video" autoplay muted playsinline preload="auto" aria-hidden="true" tabindex="-1">
       <source src="assets/videos/New-Sightline-voice-from-Sightline2-replaced-logo.mp4" type="video/mp4">
     </video>
     <div class="splash-content">
@@ -2339,6 +2339,7 @@
 
       function startSplashVideo() {
         if (!splashVideo || !splash || splash.classList.contains('is-dismissed')) return;
+        splashVideo.muted = true;
         var playPromise = splashVideo.play();
         if (playPromise && typeof playPromise.catch === 'function') playPromise.catch(function () {});
       }
@@ -2361,15 +2362,38 @@
       }
 
       if (splashVideo) {
+        splashVideo.muted = true;
         splashVideo.addEventListener('ended', function () {
           revealSplashCopy();
           splashVideo.pause();
         });
+        splashVideo.addEventListener('error', function () {
+          revealSplashCopy();
+        }, { once: true });
         if (splash) {
-          splash.addEventListener('pointerdown', startSplashVideo);
+          splash.addEventListener('pointerdown', function (event) {
+            if (splashEnter && (splashEnter === event.target || splashEnter.contains(event.target))) return;
+            if (splashVideo.paused) {
+              splashVideo.play().catch(function () {});
+            }
+            splashVideo.muted = false;
+          });
         }
-        document.addEventListener('keydown', startSplashVideo);
+        document.addEventListener('keydown', function (event) {
+          if (splash.classList.contains('is-dismissed')) return;
+          if (event.key !== 'Escape' && event.key !== 'Tab') {
+            if (splashVideo.paused) {
+              splashVideo.play().catch(function () {});
+            }
+            splashVideo.muted = false;
+          }
+        });
         startSplashVideo();
+        splashVideo.addEventListener('canplay', function () {
+          if (splashVideo.paused && !splash.classList.contains('is-dismissed')) {
+            startSplashVideo();
+          }
+        }, { once: true });
       }
 
       function setNav(open) {
