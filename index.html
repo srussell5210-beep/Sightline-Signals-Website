@@ -1605,7 +1605,7 @@
     <div class="splash-dimmer" aria-hidden="true"></div>
     <div class="splash-center-brand" id="splash-center-brand">
       <img src="assets/images/sightline-hero-lockup-3-transparent.png" alt="Sightline Signals &mdash; Facility Intelligence, Made Decision-Ready." class="splash-center-logo" width="648" height="159" title="Click to begin introduction video">
-      <a class="splash-enter-btn" id="splash-enter" href="#main-content" aria-label="Enter Sightline Signals website">
+      <a class="splash-enter-btn" id="splash-enter" href="#main-content" aria-label="Play introduction video, then enter Sightline Signals website">
         <span class="splash-enter-label">ENTER SITE</span>
         <span class="splash-enter-arrow" aria-hidden="true">↗</span>
       </a>
@@ -2336,7 +2336,7 @@
           splashEnter.addEventListener('click', function (event) {
             event.preventDefault();
             event.stopPropagation();
-            dismissSplash();
+            startSplashPlayback();
           });
         }
         document.addEventListener('keydown', function (event) {
@@ -2345,7 +2345,7 @@
           if ((event.key === ' ' || event.key === 'Enter') && !splash.classList.contains('is-playing')) {
             if (document.activeElement === splashEnter) {
               event.preventDefault();
-              dismissSplash();
+              startSplashPlayback();
               return;
             }
             event.preventDefault();
@@ -2376,7 +2376,7 @@
             }
           });
         }
-        // Before playing: click anywhere outside sound control and enter button to begin playback.
+        // Before playing: click the enter button or anywhere outside sound control to begin playback.
         // Once playing: click anywhere outside sound control to dismiss and enter site.
         splash.addEventListener('click', function (event) {
           if (event.target.closest && event.target.closest('#splash-sound, #splash-enter')) return;
