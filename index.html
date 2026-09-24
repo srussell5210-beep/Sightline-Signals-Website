@@ -1626,7 +1626,7 @@
   <a class="skip-link" href="#main-content">Skip to content</a>
 
   <div class="splash-screen" id="splash-screen" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="splash-title">
-    <video class="splash-video" autoplay muted playsinline preload="auto" aria-hidden="true" tabindex="-1">
+    <video class="splash-video" autoplay playsinline preload="auto" aria-hidden="true" tabindex="-1">
       <source src="assets/videos/New-Sightline-voice-from-Sightline2-replaced-logo.mp4" type="video/mp4">
     </video>
     <div class="splash-content">
@@ -2339,9 +2339,14 @@
 
       function startSplashVideo() {
         if (!splashVideo || !splash || splash.classList.contains('is-dismissed')) return;
-        splashVideo.muted = true;
+        splashVideo.muted = false;
         var playPromise = splashVideo.play();
-        if (playPromise && typeof playPromise.catch === 'function') playPromise.catch(function () {});
+        if (playPromise && typeof playPromise.catch === 'function') {
+          playPromise.catch(function () {
+            splashVideo.muted = true;
+            splashVideo.play().catch(function () {});
+          });
+        }
       }
 
       function revealSplashCopy() {
@@ -2362,7 +2367,6 @@
       }
 
       if (splashVideo) {
-        splashVideo.muted = true;
         splashVideo.addEventListener('ended', function () {
           revealSplashCopy();
           splashVideo.pause();
