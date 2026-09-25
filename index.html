@@ -371,10 +371,13 @@
       display: inline-flex;
       align-items: center;
       flex: 0 0 auto;
+      gap: 2px;
       min-height: 44px;
     }
 
-    .brand img { display: block; width: 178px; height: 74px; object-fit: contain; object-position: center; }
+    .brand svg { display: block; flex: 0 0 auto; overflow: hidden; }
+    .brand-emblem { width: 39.56px; height: 40.35px; }
+    .brand-wordmark { width: 176.54px; height: 52.46px; }
 
     .nav-menu {
       display: flex;
@@ -1556,7 +1559,8 @@
 
     @media (max-width: 560px) {
       :root { --container: min(100% - 28px, 520px); }
-      .brand img { width: 158px; height: 66px; }
+      .brand-emblem { width: 35.11px; height: 35.81px; }
+      .brand-wordmark { width: 156.68px; height: 46.56px; }
       .splash-meta { top: 18px; }
       .hero-actions { align-items: stretch; flex-direction: column; }
       .hero-actions a { width: 100%; }
@@ -1620,7 +1624,8 @@
   <header class="site-header">
     <nav class="site-nav container" aria-label="Primary navigation">
       <a class="brand" href="#top" aria-label="Sightline Signals home">
-        <img src="assets/images/sightline-signals-logo-transparent.png" alt="Sightline Signals">
+        <svg class="brand-emblem" viewBox="0 0 150 153" aria-hidden="true" focusable="false"><image href="assets/images/sightline-signals-logo-transparent.png" width="675" height="153"></image></svg>
+        <svg class="brand-wordmark" viewBox="160 0 515 153" aria-hidden="true" focusable="false"><image href="assets/images/sightline-signals-logo-transparent.png" width="675" height="153"></image></svg>
       </a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open navigation"><span></span></button>
       <div class="nav-menu" id="site-menu">
