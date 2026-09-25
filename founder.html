@@ -252,6 +252,22 @@
       gap: 6px;
     }
 
+    .meta-link {
+      color: inherit;
+      text-decoration-color: var(--glass-border);
+      text-underline-offset: 3px;
+    }
+
+    .meta-link:hover {
+      color: var(--accent-strong);
+    }
+
+    .meta-link:focus-visible {
+      outline: 2px solid var(--accent-strong);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+
     .clearance-pill {
       background: rgba(94, 234, 212, 0.10);
       border: 1px solid rgba(94, 234, 212, 0.30);
@@ -585,7 +601,7 @@
       <div class="nav-actions">
         <button class="glass-btn" onclick="window.print()">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
-          Print PDF
+          Print or Save as PDF
         </button>
         <a href="mailto:sam@sightline-signals.com" class="glass-btn accent">Contact Founder</a>
       </div>
@@ -610,13 +626,17 @@
             <span class="meta-item">&middot;</span>
             <span class="meta-item">(512) 618-7586</span>
             <span class="meta-item">&middot;</span>
+            <a class="meta-item meta-link" href="https://www.linkedin.com/in/samuelhrussell5210/">LinkedIn</a>
+            <span class="meta-item">&middot;</span>
             <span class="clearance-pill">Active Secret Clearance</span>
             <span class="meta-item">&middot;</span>
             <span class="meta-item">U.S. Air Force Veteran</span>
+            <span class="meta-item">&middot;</span>
+            <span class="meta-item">Resume page updated September 24, 2026</span>
           </div>
         </div>
         <div class="profile-actions">
-          <button class="glass-btn accent" onclick="window.print()">Download Resume (PDF)</button>
+          <a class="glass-btn accent" href="assets/Samuel_Russell_Principal_Data_Architect_Resume.pdf" download="Samuel_Russell_Principal_Data_Architect_Resume.pdf">Download Resume (PDF)</a>
           <a href="mailto:sam@sightline-signals.com" class="glass-btn">Email Direct</a>
         </div>
       </header>
