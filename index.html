@@ -1604,11 +1604,11 @@
 
   <div class="splash-screen" id="splash-screen" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Sightline Signals Introduction">
     <video class="splash-video" playsinline preload="auto" aria-hidden="true" tabindex="-1">
-      <source src="assets/videos/New-Sightline.mp4" type="video/mp4">
+      <source src="assets/videos/New-Sightline-updated-logo.mp4" type="video/mp4">
     </video>
     <div class="splash-dimmer" aria-hidden="true"></div>
     <div class="splash-center-brand" id="splash-center-brand">
-      <img src="assets/images/sightline-hero-lockup-3-transparent.png" alt="Sightline Signals &mdash; Facility Intelligence, Made Decision-Ready." class="splash-center-logo" width="648" height="159" title="Click to begin introduction video">
+      <canvas class="splash-center-logo" id="splash-center-logo" width="680" height="167" role="img" aria-label="Sightline Signals — Facility Intelligence, Made Decision-Ready" title="Click to begin introduction video"></canvas>
       <a class="splash-enter-btn" id="splash-enter" href="#main-content" aria-label="Play introduction video, then enter Sightline Signals website">
         <span class="splash-enter-label">ENTER SITE</span>
         <span class="splash-enter-arrow" aria-hidden="true">↗</span>
@@ -2299,6 +2299,28 @@
       var splashSoundLabel = splashSound ? splashSound.querySelector('.splash-sound-label') : null;
       var mainContent = document.querySelector('#main-content');
       var lastFocused = null;
+
+      var splashLogoCanvas = document.querySelector('#splash-center-logo');
+      if (splashLogoCanvas) {
+        var splashLogoImage = new Image();
+        splashLogoImage.onload = function () {
+          var context = splashLogoCanvas.getContext('2d');
+          context.drawImage(splashLogoImage, 184, 195, 680, 167, 0, 0, 680, 167);
+          var pixels = context.getImageData(0, 0, 680, 167);
+          for (var y = 0; y < 167; y++) {
+            for (var x = 0; x < 680; x++) {
+              var i = (y * 680 + x) * 4;
+              var red = pixels.data[i];
+              var green = pixels.data[i + 1];
+              var blue = pixels.data[i + 2];
+              var strength = x < 156 ? (red - green - 8) / 27 : (Math.min(red, green, blue) - 80) / 70;
+              pixels.data[i + 3] = Math.max(0, Math.min(255, Math.round(strength * 255)));
+            }
+          }
+          context.putImageData(pixels, 0, 0);
+        };
+        splashLogoImage.src = 'assets/images/sightline-splash-logo-source.jpeg';
+      }
 
       function dismissSplash() {
         if (!splash || splash.classList.contains('is-dismissed')) return;
