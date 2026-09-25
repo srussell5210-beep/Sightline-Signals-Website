@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Samuel H. Russell | Founder &amp; Principal Data Architect | Sightline Signals</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Glass Surface Tokens */
+      --bg: #040406;
+      --bg-deep: #000000;
+      --glass-base: rgba(14, 15, 20, 0.75);
+      --glass-surface: rgba(18, 20, 26, 0.68);
+      --glass-raised: rgba(24, 27, 36, 0.60);
+      --glass-high: rgba(34, 38, 50, 0.55);
+      --glass-border: rgba(204, 164, 102, 0.16);
+      --glass-border-subtle: rgba(255, 255, 255, 0.06);
+      --glass-specular: rgba(229, 192, 123, 0.20);
+      --glass-glow: rgba(204, 164, 102, 0.16);
+      --glass-blur: 24px;
+
+      /* Typography & Brand Accents */
+      --text: #f7f8fa;
+      --text-soft: #d5d8e0;
+      --muted: #9aa0b0;
+      --subtle: #7d8495;
+      --accent: #cca466;
+      --accent-strong: #e5c07b;
+      --accent-mid: #996f2d;
+      --accent-fill: rgba(204, 164, 102, 0.12);
+      --line: rgba(204, 164, 102, 0.22);
+      --line-soft: rgba(255, 255, 255, 0.07);
+      --teal: #5eead4;
+      --amber: #f8d64e;
+      --radius-lg: 16px;
+      --radius-md: 10px;
+      --radius-sm: 6px;
+      --font-ui: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      background-image:
+        radial-gradient(circle at 50% -10%, var(--glass-glow) 0%, transparent 60%),
+        radial-gradient(circle at 10% 25%, rgba(216, 159, 120, 0.06) 0%, transparent 45%),
+        radial-gradient(circle at 90% 65%, rgba(94, 234, 212, 0.04) 0%, transparent 50%),
+        linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+      background-attachment: fixed;
+      color: var(--text);
+      font-family: var(--font-ui);
+      line-height: 1.6;
+      min-height: 100vh;
+      padding-bottom: 90px;
+      overflow-x: hidden;
+    }
+
+    /* Fixed Dark Glass Navigation Bar */
+    .glass-nav-wrap {
+      position: sticky;
+      top: 16px;
+      z-index: 1000;
+      max-width: 1180px;
+      margin: 0 auto 28px auto;
+      padding: 0 16px;
+    }
+
+    .glass-nav {
+      background: var(--glass-base);
+      backdrop-filter: blur(var(--glass-blur)) saturate(190%);
+      -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(190%);
+      border: 1px solid var(--glass-border);
+      border-radius: 999px;
+      box-shadow:
+        inset 0 1px 0 var(--glass-specular),
+        0 16px 40px rgba(0, 0, 0, 0.80);
+      padding: 10px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      transition: border-color 200ms ease;
+    }
+
+    .glass-nav:hover {
+      border-color: rgba(255, 255, 255, 0.16);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-link {
+      color: var(--text-soft);
+      text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 500;
+      transition: color 150ms ease;
+    }
+
+    .nav-link:hover {
+      color: var(--accent-strong);
+    }
+
+    .nav-link.active {
+      color: var(--accent);
+      position: relative;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Glass Control Buttons */
+    .glass-btn {
+      background: var(--glass-raised);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border);
+      color: var(--text);
+      font-family: var(--font-ui);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 7px 15px;
+      border-radius: 999px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      text-decoration: none;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      transition: all 160ms ease;
+    }
+
+    .glass-btn:hover {
+      background: var(--glass-high);
+      border-color: var(--accent-strong);
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    .glass-btn.accent {
+      background: var(--accent);
+      color: #0b0704;
+      border-color: var(--accent-strong);
+      box-shadow: 0 4px 14px rgba(216, 159, 120, 0.35);
+    }
+
+    .glass-btn.accent:hover {
+      background: var(--accent-strong);
+      color: #000000;
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    /* Dark Glass Stage Card */
+    .glass-card {
+      background: var(--glass-surface);
+      backdrop-filter: blur(var(--glass-blur)) saturate(190%);
+      -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(190%);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      box-shadow:
+        inset 0 1px 0 var(--glass-specular),
+        0 24px 70px rgba(0, 0, 0, 0.85);
+      padding: 40px;
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    /* Hero Header */
+    .profile-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 24px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--glass-border-subtle);
+      margin-bottom: 32px;
+    }
+
+    .profile-kicker {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .kicker-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent);
+    }
+
+    .profile-name {
+      font-size: 38px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      line-height: 1.15;
+      margin-bottom: 10px;
+      color: #ffffff;
+    }
+
+    .profile-titles {
+      font-size: 19px;
+      color: var(--accent-strong);
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    .profile-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 13.5px;
+      color: var(--muted);
+      align-items: center;
+    }
+
+    .meta-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .clearance-pill {
+      background: rgba(94, 234, 212, 0.10);
+      border: 1px solid rgba(94, 234, 212, 0.30);
+      color: var(--teal);
+      padding: 3px 9px;
+      border-radius: 999px;
+      font-size: 11.5px;
+      font-family: var(--font-mono);
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+
+    .profile-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    /* Dual Track Highlights Grid */
+    .dual-track-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+      margin-bottom: 36px;
+    }
+
+    .track-card {
+      background: var(--glass-raised);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        0 12px 28px rgba(0, 0, 0, 0.50);
+      padding: 26px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .track-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent) 0%, transparent 80%);
+    }
+
+    .track-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--accent-strong);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .track-body {
+      font-size: 14px;
+      color: var(--text-soft);
+      line-height: 1.65;
+      margin-bottom: 14px;
+    }
+
+    .track-footer {
+      font-size: 12.5px;
+      color: var(--muted);
+      border-top: 1px solid var(--glass-border-subtle);
+      padding-top: 10px;
+      font-family: var(--font-mono);
+    }
+
+    /* Section Headings */
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 36px 0 22px 0;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--glass-border-subtle);
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.2px;
+      color: #ffffff;
+    }
+
+    .section-sub {
+      font-size: 12px;
+      font-family: var(--font-mono);
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+
+    /* Production Timeline */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-bottom: 36px;
+    }
+
+    .timeline-card {
+      background: var(--glass-raised);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.06),
+        0 10px 24px rgba(0, 0, 0, 0.40);
+      padding: 24px 26px;
+      transition: transform 160ms ease, border-color 160ms ease;
+      position: relative;
+    }
+
+    .timeline-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, 0.16);
+    }
+
+    .timeline-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .timeline-role {
+      font-size: 17px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .timeline-date {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--accent);
+      background: var(--accent-fill);
+      border: 1px solid rgba(216, 159, 120, 0.25);
+      padding: 2px 8px;
+      border-radius: var(--radius-sm);
+    }
+
+    .timeline-company {
+      font-size: 14px;
+      color: var(--text-soft);
+      font-weight: 500;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .timeline-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .timeline-bullets li {
+      font-size: 13.5px;
+      color: var(--text-soft);
+      line-height: 1.6;
+      position: relative;
+      padding-left: 18px;
+    }
+
+    .timeline-bullets li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 9px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .timeline-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding-top: 12px;
+      border-top: 1px solid var(--glass-border-subtle);
+    }
+
+    .glass-tag {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--glass-border);
+      color: var(--text-soft);
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      padding: 3px 8px;
+      border-radius: var(--radius-sm);
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+
+    .skill-card {
+      background: var(--glass-raised);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      padding: 20px;
+    }
+
+    .skill-header {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--accent-strong);
+      margin-bottom: 10px;
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .skill-list {
+      font-size: 13px;
+      color: var(--text-soft);
+      line-height: 1.65;
+    }
+
+    /* Footer Credentials Grid */
+    .creds-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .cred-card {
+      background: var(--glass-raised);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      padding: 18px;
+    }
+
+    .cred-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 6px;
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+    }
+
+    .cred-content {
+      font-size: 13px;
+      color: var(--text-soft);
+      line-height: 1.5;
+    }
+
+    /* Print Stylesheet for ATS and Physical Print */
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        background-image: none !important;
+      }
+      .glass-nav-wrap, .profile-actions {
+        display: none !important;
+      }
+      .glass-card, .track-card, .timeline-card, .skill-card, .cred-card {
+        background: transparent !important;
+        border: 1px solid #cccccc !important;
+        box-shadow: none !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        color: #000000 !important;
+        padding: 14px !important;
+      }
+      .profile-name, .timeline-role, .section-title {
+        color: #000000 !important;
+      }
+      .profile-titles, .timeline-date, .track-title, .skill-header, .cred-title {
+        color: #333333 !important;
+      }
+      .timeline-bullets li, .track-body, .skill-list, .cred-content, .profile-meta {
+        color: #222222 !important;
+      }
+      .glass-tag {
+        border: 1px solid #888888 !important;
+        color: #111111 !important;
+        background: transparent !important;
+      }
+      .clearance-pill {
+        border: 1px solid #000000 !important;
+        color: #000000 !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .glass-card {
+        padding: 24px 18px;
+      }
+      .profile-name {
+        font-size: 28px;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Glass Navigation -->
+  <div class="glass-nav-wrap">
+    <nav class="glass-nav">
+      <div class="nav-links">
+        <a href="https://sightline-signals.com" class="nav-link">Platform</a>
+        <a href="https://sightline-signals.com" class="nav-link">Estate Telemetry</a>
+        <a href="https://sightline-signals.com" class="nav-link">Data Surfaces</a>
+        <a href="#" class="nav-link active">Founder &amp; Principal</a>
+      </div>
+      <div class="nav-actions">
+        <button class="glass-btn" onclick="window.print()">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          Print PDF
+        </button>
+        <a href="mailto:sam@sightline-signals.com" class="glass-btn accent">Contact Founder</a>
+      </div>
+    </nav>
+  </div>
+
+  <main class="container">
+    <div class="glass-card">
+
+      <!-- Executive Header -->
+      <header class="profile-header">
+        <div>
+          <div class="profile-kicker">
+            <span class="kicker-dot"></span> Executive Profile &middot; Technical Leadership
+          </div>
+          <h1 class="profile-name">Samuel H. Russell</h1>
+          <div class="profile-titles">Founder and Principal Cloud Data AI Architect &middot; Principal Data Architect</div>
+          <div class="profile-meta">
+            <span class="meta-item">Austin, TX</span>
+            <span class="meta-item">&middot;</span>
+            <span class="meta-item">sam@sightline-signals.com</span>
+            <span class="meta-item">&middot;</span>
+            <span class="meta-item">(512) 618-7586</span>
+            <span class="meta-item">&middot;</span>
+            <span class="clearance-pill">Active Secret Clearance</span>
+            <span class="meta-item">&middot;</span>
+            <span class="meta-item">U.S. Air Force Veteran</span>
+          </div>
+        </div>
+        <div class="profile-actions">
+          <button class="glass-btn accent" onclick="window.print()">Download Resume (PDF)</button>
+          <a href="mailto:sam@sightline-signals.com" class="glass-btn">Email Direct</a>
+        </div>
+      </header>
+
+      <!-- Dual Track Strategic Cards -->
+      <section class="dual-track-grid">
+        <div class="track-card">
+          <div class="track-title">Founder Thesis &middot; Sightline Signals</div>
+          <p class="track-body">
+            Sightline Signals adds a read-only analytics layer on top of BMS already installed on-premise in AI data centers, warehouses, and multi-site portfolios. It uses the telemetry those systems already collect: HVAC, power, water, IT, access control, and fire and life safety.
+          </p>
+          <div class="track-footer">
+            Sole inventor on 6 U.S. provisional patent applications in AI agent infrastructure and closed-loop data center energy optimization.
+          </div>
+        </div>
+
+        <div class="track-card">
+          <div class="track-title">Enterprise Data Pedigree &middot; 15+ Years</div>
+          <p class="track-body">
+            Over 15 years on both ends of enterprise data: the mission-critical Oracle systems that run the business (RAC and GoldenGate) and the Databricks lakehouses that analytics and AI teams build on (Delta Lake, Unity Catalog, Spark Structured Streaming).
+          </p>
+          <div class="track-footer">
+            Databricks Certified Generative AI Engineer Associate &middot; CompTIA Security+ &middot; Oracle Database 12c Certified Professional &middot; Microsoft Certified Technology Specialist &middot; Active Secret clearance.
+          </div>
+        </div>
+      </section>
+
+      <!-- Career Timeline -->
+      <section>
+        <div class="section-header">
+          <h2 class="section-title">Production Leadership &amp; Track Record</h2>
+          <span class="section-sub">15+ Year Operational History</span>
+        </div>
+
+        <div class="timeline">
+          <!-- Role 1: Sightline Signals -->
+          <article class="timeline-card">
+            <div class="timeline-top">
+              <span class="timeline-role">Founder and Principal Cloud Data AI Architect</span>
+              <span class="timeline-date">Nov 2024 – Present</span>
+            </div>
+            <div class="timeline-company">Sightline Signals &middot; Austin, TX &middot; AI Energy Intelligence Platform</div>
+            <p style="font-size:13.5px; color:var(--text-soft); margin-bottom:10px;">
+              Founded the company and lead a 6-person team of co-founders and one other engineer, owning platform design and architecture.
+            </p>
+            <ul class="timeline-bullets">
+              <li>Built production GenAI diagnostic platform: ingestion, vector pipelines, agent reasoning, security, CI/CD, APIs, and delivered application.</li>
+              <li>Built Delta Lake and Spark Structured Streaming pipelines (DLT Expectations, Auto Loader) for high-cardinality sensor telemetry, with automated schema evolution and a quarantine path for bad data.</li>
+              <li>Implemented a RAG diagnostic engine on Mosaic AI Vector Search and Model Serving, using Unity Catalog Functions for governed tool calling against telemetry, equipment manuals, and incident history.</li>
+              <li>Added MLflow tracing and evaluation to RAG and agent workflows to measure retrieval precision, groundedness, and hallucination rate. That work helped cut inaccurate diagnostic output by 58%.</li>
+              <li>Delivered close to 35 screens: ranked operating risk and remediation guidance for facility teams, and energy cost, savings, and ESG reporting for executives, each traceable to source data.</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="glass-tag">Databricks</span>
+              <span class="glass-tag">Delta Lake</span>
+              <span class="glass-tag">Mosaic AI Vector Search</span>
+              <span class="glass-tag">Unity Catalog</span>
+              <span class="glass-tag">MLflow 3.x</span>
+              <span class="glass-tag">Spark Structured Streaming</span>
+              <span class="glass-tag">Agent Evaluation</span>
+            </div>
+          </article>
+
+          <!-- Role 2: Fiserv -->
+          <article class="timeline-card">
+            <div class="timeline-top">
+              <span class="timeline-role">Oracle OCI RAC Senior DBA/Migration Expert</span>
+              <span class="timeline-date">Jul 2022 – Nov 2024</span>
+            </div>
+            <div class="timeline-company">Fiserv &middot; FinTech Systems &middot; Multi-Terabyte Core Platforms</div>
+            <ul class="timeline-bullets">
+              <li>Moved multi-terabyte analytical workloads from Oracle to Databricks Delta Lake and Snowflake, cutting platform infrastructure costs by 60%.</li>
+              <li>Built GoldenGate CDC pipelines into Databricks using Change Data Feed and Delta MERGE while financial systems kept processing live transactions.</li>
+              <li>Applied Unity Catalog row- and column-level security, dynamic masking, and audit lineage to regulated financial datasets.</li>
+              <li>One of 3 architects leading technical delivery for a 7-person data engineering, compliance, and platform team supporting 24/7 financial processing.</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="glass-tag">Oracle RAC</span>
+              <span class="glass-tag">GoldenGate CDC</span>
+              <span class="glass-tag">Databricks Delta Lake</span>
+              <span class="glass-tag">Snowflake</span>
+              <span class="glass-tag">Unity Catalog Lineage</span>
+              <span class="glass-tag">FinTech 24/7 SLA</span>
+            </div>
+          </article>
+
+          <!-- Role 3: NASA Artemis -->
+          <article class="timeline-card">
+            <div class="timeline-top">
+              <span class="timeline-role">Database Engineer</span>
+              <span class="timeline-date">Jun 2021 – Jul 2022</span>
+            </div>
+            <div class="timeline-company">NASA Artemis Program &middot; AWS GovCloud &middot; Deep Space Telemetry</div>
+            <ul class="timeline-bullets">
+              <li>Ran 6 Oracle, PostgreSQL, Snowflake, and MongoDB databases supporting Artemis telemetry and mission planning in AWS GovCloud under FedRAMP and FISMA requirements.</li>
+              <li>Advised on new software and major updates as part of the team maintaining the environment's Authority to Operate (ATO).</li>
+              <li>Migrated 5 TB of program analytics from Oracle to Snowflake and kept the environment audit-ready the whole way.</li>
+              <li>Automated vulnerability scanning, configuration management, and patching with Python, cutting manual effort by around 40%.</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="glass-tag">AWS GovCloud</span>
+              <span class="glass-tag">FedRAMP / FISMA ATO</span>
+              <span class="glass-tag">Snowflake Migration</span>
+              <span class="glass-tag">Python Automation</span>
+              <span class="glass-tag">PostgreSQL</span>
+              <span class="glass-tag">MongoDB</span>
+            </div>
+          </article>
+
+          <!-- Role 4: GM Financial -->
+          <article class="timeline-card">
+            <div class="timeline-top">
+              <span class="timeline-role">Senior Cloud DBA Applications Technical</span>
+              <span class="timeline-date">May 2019 – Jun 2021</span>
+            </div>
+            <div class="timeline-company">GM Financial &middot; AWS &amp; Azure Hybrid Cloud</div>
+            <ul class="timeline-bullets">
+              <li>Led a 3-person team upgrading 70+ Oracle RAC databases (about 18 TB) from 12c to 19c across AWS and Azure, inside 5-hour Saturday maintenance windows.</li>
+              <li>Handled the technical side of Oracle E-Business Suite 12.1 to 12.2 upgrade alongside the functional lead.</li>
+              <li>Wrote Python, PL/SQL, and Bash automation cutting manual DBA administration work by roughly 25%.</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="glass-tag">Oracle 19c Upgrade</span>
+              <span class="glass-tag">AWS &amp; Azure</span>
+              <span class="glass-tag">Oracle E-Business Suite</span>
+              <span class="glass-tag">Zero-Downtime Windows</span>
+            </div>
+          </article>
+
+          <!-- Role 5: NAVWAR -->
+          <article class="timeline-card">
+            <div class="timeline-top">
+              <span class="timeline-role">Senior Oracle Application SME</span>
+              <span class="timeline-date">Feb 2015 – May 2019</span>
+            </div>
+            <div class="timeline-company">NAVWAR, United States Navy</div>
+            <ul class="timeline-bullets">
+              <li>Oracle subject matter expert for the Marine Corps GCSS-MC ERP upgrade from E-Business Suite 12.1 to 12.2, a multi-year program serving 16,000 users across 62 bases worldwide.</li>
+              <li>Set technical direction for government staff and contractor teams, and answered for the database layer during compliance reviews.</li>
+              <li>Led a database consolidation that reduced the server footprint and tightened security.</li>
+              <li>Kept the ERP databases behind Marine Corps logistics reliable and in line with federal regulations and DoD cybersecurity standards for the length of the upgrade.</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="glass-tag">GCSS-MC ERP</span>
+              <span class="glass-tag">Oracle E-Business Suite</span>
+              <span class="glass-tag">Database Consolidation</span>
+              <span class="glass-tag">DoD Compliance</span>
+            </div>
+          </article>
+
+          <!-- Role 6: McLane Advanced Technologies -->
+          <article class="timeline-card">
+            <div class="timeline-top">
+              <span class="timeline-role">Senior Oracle DBA</span>
+              <span class="timeline-date">Aug 2013 – Feb 2015</span>
+            </div>
+            <div class="timeline-company">McLane Advanced Technologies</div>
+            <ul class="timeline-bullets">
+              <li>Supported Oracle database implementation projects for several federal and state government clients at once.</li>
+              <li>One of two Oracle DBAs on a six-person team that upgraded GCSS-Army PBUSE from a legacy Unix platform to Oracle Supercluster, cutting inventory reporting response time 60% at the local Army base and deployed depots.</li>
+              <li>Served as lead architect representative in the architecture review for the Texas Railroad Commission's legacy modernization and helped shape the plan.</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="glass-tag">GCSS-Army PBUSE</span>
+              <span class="glass-tag">Oracle Supercluster</span>
+              <span class="glass-tag">Texas Railroad Commission</span>
+              <span class="glass-tag">Federal and State Government</span>
+            </div>
+          </article>
+
+          <!-- Role 7: Oracle Corporation -->
+          <article class="timeline-card">
+            <div class="timeline-top">
+              <span class="timeline-role">Senior RAC Oracle DBA</span>
+              <span class="timeline-date">Aug 2010 – Aug 2013</span>
+            </div>
+            <div class="timeline-company">Oracle Corporation</div>
+            <ul class="timeline-bullets">
+              <li>Hired as the production RAC conversion expert, the first hire from outside Siebel, to move Siebel from Windows and DB2 onto Red Hat Linux and Oracle.</li>
+              <li>Led the migration from DB2 to Oracle 10g RAC, using GoldenGate to replicate data in real time.</li>
+              <li>One of four engineers sent to evaluate GoldenGate as the replication solution for the conversion.</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="glass-tag">Oracle RAC</span>
+              <span class="glass-tag">DB2 to Oracle Migration</span>
+              <span class="glass-tag">GoldenGate</span>
+              <span class="glass-tag">Red Hat Linux</span>
+            </div>
+          </article>
+
+          <!-- Military Service -->
+          <article class="timeline-card">
+            <div class="timeline-top">
+              <span class="timeline-role">Military Service</span>
+            </div>
+            <div class="timeline-company">United States Air Force &middot; Air Surveillance Technician and Instructor</div>
+            <div class="timeline-tags">
+              <span class="glass-tag">U.S. Air Force Veteran</span>
+              <span class="glass-tag">Air Surveillance</span>
+              <span class="glass-tag">Technical Instruction</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Technical Architecture Matrix -->
+      <section>
+        <div class="section-header">
+          <h2 class="section-title">Technical Expertise &amp; Core Stack</h2>
+          <span class="section-sub">Verified Enterprise Competencies</span>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-card">
+            <div class="skill-header">// GenAI &amp; Lakehouse</div>
+            <div class="skill-list">
+              Databricks, Delta Lake, Mosaic AI Vector Search, Unity Catalog, MLflow 3.x, Spark Structured Streaming, Auto Loader, DLT Expectations, RAG Diagnostic Architectures, Agent Evaluation.
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-header">// Enterprise Data Engines</div>
+            <div class="skill-list">
+              Oracle RAC, Oracle Supercluster, Oracle GoldenGate CDC, Oracle Data Guard, PL/SQL Performance Tuning, PostgreSQL, Snowflake, MongoDB.
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-header">// Cloud, Security &amp; Ops</div>
+            <div class="skill-list">
+              AWS GovCloud, Azure, OCI, Docker, Terraform, CI/CD Pipelines, DISA STIGs, FedRAMP, FISMA ATO Governance, Python Automation, Linux/Bash Administration.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Credentials & Education -->
+      <section>
+        <div class="section-header">
+          <h2 class="section-title">Credentials, Patents &amp; Education</h2>
+          <span class="section-sub">Qualifications and Inventorship</span>
+        </div>
+
+        <div class="creds-grid">
+          <div class="cred-card">
+            <div class="cred-title">6 U.S. Patent Applications</div>
+            <div class="cred-content">
+              Sole inventor on 6 U.S. provisional patent applications covering AI agent infrastructure and closed-loop data center energy optimization.
+            </div>
+          </div>
+
+          <div class="cred-card">
+            <div class="cred-title">Clearance &amp; Certifications</div>
+            <div class="cred-content">
+              Active Secret Security Clearance (DoD)<br>
+              Databricks Certified Generative AI Engineer Associate<br>
+              Oracle Database 12c Certified Professional<br>
+              CompTIA Security+ (DoD 8570 and 8140 compliant)<br>
+              Microsoft Certified Technology Specialist
+            </div>
+          </div>
+
+          <div class="cred-card">
+            <div class="cred-title">Academic Degrees</div>
+            <div class="cred-content">
+              Bachelor of Science in Management Information Systems<br>
+              University of Oklahoma
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <script>
+  </script>
+</body>
+</html>
